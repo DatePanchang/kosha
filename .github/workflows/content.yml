@@ -53,4 +53,4 @@ jobs:
       - name: Display HTMLs
         run: |
           echo Displaying HTMLs
-          echo ${{ steps.htmls.outputs }}
+          echo ${{ steps.htmls.outputs.parsedHtmls }}
