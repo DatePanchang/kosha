@@ -6,6 +6,7 @@
   "dependencies": {
     "@actions/core": "^1.4.0",
     "@actions/github": "^5.0.0",
+    "handlebars": "^4.7.7",
     "markdown-to-json": "^0.5.4"
   },
   "devDependencies": {},
