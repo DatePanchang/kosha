@@ -44,7 +44,13 @@ jobs:
               - '**/*.png'
 
       - name: Display file names
+        id: htmls
         run: |
           echo Displaying List of changed Files
           echo ${{ steps.filter.outputs.changed_files }}
           node index.js ${{ steps.filter.outputs.changed_files }}
+          
+      - name: Display HTMLs
+        run: |
+          echo Displaying HTMLs
+          echo ${{ steps.htmls.outputs }}
