@@ -1,5 +1,5 @@
 const m2j = require("markdown-to-json");
-// const core = require("@actions/core");
+const core = require("@actions/core");
 // const github = require("@actions/github");
 const fs = require("fs");
 const path = require("path");
@@ -30,4 +30,4 @@ var parsedHtmls = parsedJsons.map((parsedJson) => {
 
 console.log(parsedHtmls);
 
-return parsedHtmls;
+core.setOutput('parsedHtmls', parsedHtmls);
