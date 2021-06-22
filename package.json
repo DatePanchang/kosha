@@ -1,0 +1,27 @@
+{
+  "name": "kosha",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@actions/core": "^1.4.0",
+    "@actions/github": "^5.0.0",
+    "markdown-to-json": "^0.5.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "debug": "./node_modules/.bin/m2j -w 0 ./2021/shivarajyabhishek.md"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DatePanchang/kosha.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DatePanchang/kosha/issues"
+  },
+  "homepage": "https://github.com/DatePanchang/kosha#readme"
+}
