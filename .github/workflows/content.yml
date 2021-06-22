@@ -2,11 +2,11 @@
 
 name: MD to Html
 
-# Controls when the action will run. 
+# Controls when the action will run.
 on:
   pull_request:
     branches:
-    - dev
+      - dev
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -20,7 +20,13 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       # List of files changed in PR
-      - uses: dorny/paths-filter@v2
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.1.5
+      - run: npm install
+
+      - name: Get Changed Files
+        uses: dorny/paths-filter@v2
         id: filter
         with:
           # Enable listing of files matching each filter.
@@ -36,7 +42,15 @@ jobs:
               - '**/*.html'
               - '**/*.jpg'
               - '**/*.png'
+
       - name: Display file names
+        id: htmls
         run: |
           echo Displaying List of changed Files
           echo ${{ steps.filter.outputs.changed_files }}
+          node index.js ${{ steps.filter.outputs.changed_files }}
+          
+      - name: Display HTMLs
+        run: |
+          echo Displaying HTMLs
+          echo ${{ steps.htmls.outputs.parsedHtmls }}
