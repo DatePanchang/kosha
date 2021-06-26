@@ -8,7 +8,6 @@ const customFileUtils = require("./customFileUtils");
 main();
 
 async function main() {
-  console.log("dirname--", __dirname);
 
   const templateFilePath = "src/template/template.html";
   if (!fs.existsSync(templateFilePath)) {
@@ -48,20 +47,19 @@ async function main() {
   ).map((fileName) => fileName.replace(".md", ".html"));
 
   var parsedJsons = filteredFileNames.map((fileName) => {
-    console.log("FileName: ", fileName);
     var jsonString = JSON.parse(m2j.parse([fileName], {}));
     var index = fileName.indexOf("src/");
     var propName = fileName.substr(index + 4);
     return { [propName]: Object.values(jsonString)[0] };
   });
 
-  var changedJPGs = trimPath(fileNames.filter(
-    (fileName) =>
-      fs.existsSync(fileName) &&
-      (fileName.includes(".jpg") || fileName.includes(".png"))
-  ));
-
-  console.log("parsedJsons: ", parsedJsons);
+  var changedJPGs = trimPath(
+    fileNames.filter(
+      (fileName) =>
+        fs.existsSync(fileName) &&
+        (fileName.includes(".jpg") || fileName.includes(".png"))
+    )
+  );
 
   var parsedHtmls = parsedJsons.map((parsedJson) => {
     const template = Handlebars.compile(templateHTMLAsString);
@@ -71,7 +69,7 @@ async function main() {
     };
   });
 
-  console.log(parsedHtmls);
+  console.log("parsedHtmls: ", parsedHtmls);
 
   core.setOutput("deletedFiles", deletedFiles);
   core.setOutput("parsedHtmls", parsedHtmls);
