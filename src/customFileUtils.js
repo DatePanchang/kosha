@@ -1,6 +1,7 @@
 const { promisify } = require("util");
-const { resolve } = require("path");
+const { resolve, normalize } = require("path");
 const fs = require("fs");
+const mkdir = promisify(fs.mkdir);
 const readdir = promisify(fs.readdir);
 const stat = promisify(fs.stat);
 
@@ -15,4 +16,13 @@ const getFiles = async (dir) => {
   return files.reduce((a, f) => a.concat(f), []);
 };
 
-module.exports = { getFiles };
+const makeDir = async (fileName) => {
+  var lastSlash = fileName.lastIndexOf("/");
+  var folderPath = lastSlash == -1 ? fileName : fileName.substr(0, lastSlash);
+  const normalizedFolderPath = normalize(__dirname + "/" + folderPath);
+  if (!fs.existsSync(normalizedFolderPath)) {
+    await mkdir(normalizedFolderPath, { recursive: true });
+  }
+};
+
+module.exports = { getFiles, makeDir };
