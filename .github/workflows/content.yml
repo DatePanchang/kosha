@@ -44,9 +44,15 @@ jobs:
               - 'src/**/*.png'
               - 'src/**/*.js'
 
-      - name: Display file names
+      - name: HTMLs to Deploy
         id: htmls
         run: |
           echo Displaying List of changed Files
           echo ${{ steps.filter.outputs.changed_files }}
           node src/index.js ${{ steps.filter.outputs.changed_files }}
+          
+      - name: Deploy
+        id: deploy
+        run: |
+          echo Displaying Output
+          echo ${{ steps.filter.outputs.parsedHtmls }}
