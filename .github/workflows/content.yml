@@ -56,7 +56,7 @@ jobs:
         id: deploy
         with:
           folder: "src/rendered/"
-          enabled-static-website: "true"
+          blob-container-name: '$web'
           connection-string: ${{ secrets.STORAGE_CONNECTION_STRING }}
 #         run: |
 #           echo Displaying Output
