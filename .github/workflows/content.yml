@@ -51,12 +51,20 @@ jobs:
           echo ${{ steps.filter.outputs.changed_files }}
           node src/index.js ${{ steps.filter.outputs.changed_files }}
 
-      - name: Azure CLI Action
-        uses: Azure/cli@1.0.4
+      - name: Azure Login
+        uses: Azure/login@v1
         with:
-          # Specify the script here
-          inlineScript: |
-            az storage blob upload-batch -d '$web' -s "src/rendered/" --destination-path 'promos/utsav' --connection-string ${{ secrets.STORAGE_CONNECTION_STRING }}
+          # Paste output of `az ad sp create-for-rbac` as value of secret variable: AZURE_CREDENTIALS
+          creds: ${{ secrets.AZURE_CREDS }}
+      - run: |
+          az storage blob upload-batch -d '$web' --account-name devsarvajanik -s "src/rendered/" --destination-path 'promos/utsav' --auth-mode login
+          
+#       - name: Azure CLI Action
+#         uses: Azure/cli@1.0.4
+#         with:
+#           # Specify the script here
+#           inlineScript: |
+#             az storage blob upload-batch -d '$web' --account-name devsarvajanik -s "src/rendered/" --destination-path 'promos/utsav' --connection-string ${{ secrets.STORAGE_CONNECTION_STRING }}
 
 #       - name: Deploy
 #         uses: bacongobbler/azure-blob-storage-upload@779a18b594a1a7cf5412645e06c856324a8b01e5
