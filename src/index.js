@@ -93,7 +93,7 @@ async function main() {
       template(Object.values(parsedJson)[0]),
       function (err) {
         if (err) throw err;
-        console.log(Object.values(parsedJson)[0]), "Saved!");
+        console.log(Object.values(parsedJson)[0], "Saved!");
       }
     );
     // return {
