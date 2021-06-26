@@ -3,9 +3,9 @@ const core = require("@actions/core");
 // const github = require("@actions/github");
 const fs = require("fs");
 const Handlebars = require("handlebars");
-const walk = require("./recurrsiveRead");
+const recurrsiveRead = require("./recurrsiveRead");
 
-console.log("dirname", __dirname);
+console.log("dirname--", __dirname);
 
 const templateFilePath = "./template/template.html";
 if (!fs.existsSync(templateFilePath)) {
@@ -17,7 +17,7 @@ let templateHTMLAsString = fs.readFileSync(templateFilePath, "utf8");
 var fileNames =
   process.argv[2].includes("template.html") ||
   process.argv[2].includes("index.js")
-    ? walk(__dirname).filter((fileName) => fileName.includes(".md"))
+    ? recurrsiveRead.walk(__dirname).filter((fileName) => fileName.includes(".md"))
     : process.argv[2].replace("[", "").replace("]", "").split(",");
 
 console.log("FileNames: ", fileNames);
