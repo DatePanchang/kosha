@@ -2,23 +2,33 @@ const m2j = require("markdown-to-json");
 const core = require("@actions/core");
 // const github = require("@actions/github");
 const fs = require("fs");
-const path = require("path");
 const Handlebars = require("handlebars");
+const walk = require("./recurrsiveRead");
 
-let templateHTMLAsString = fs.readFileSync(
-  path.resolve(__dirname, "./template/template.html"),
-  "utf8"
-);
+const templateFilePath = path.resolve(__dirname, "./template/template.html");
+if (!fs.existsSync(templateFilePath)) {
+  throw Error("Template HTML doesnt exist");
+}
 
-var fileNames = process.argv[2].replace("[", "").replace("]", "").split(",");
+let templateHTMLAsString = fs.readFileSync(templateFilePath, "utf8");
 
-var parsedJsons = fileNames.map((fileName) => {
+var fileNames =
+  process.argv[2].includes("template.html") ||
+  process.argv[2].includes("index.js")
+    ? walk(__dirname).filter((fileName) => fileName.includes(".md"))
+    : process.argv[2].replace("[", "").replace("]", "").split(",");
+
+console.log("FileNames: ", fileNames);
+
+var parsedJsons = fileNames
+.filter((fileName) => fs.existsSync(fileName) && fileName.includes(".md"))
+.map((fileName) => {
+  console.log("FileName: ", fileName);
   var jsonString = JSON.parse(m2j.parse([fileName], {}));
-
   return { [fileName]: Object.values(jsonString)[0] };
 });
 
-console.log(parsedJsons);
+console.log("parsedJsons: ", parsedJsons);
 
 var parsedHtmls = parsedJsons.map((parsedJson) => {
   const template = Handlebars.compile(templateHTMLAsString);
@@ -30,4 +40,4 @@ var parsedHtmls = parsedJsons.map((parsedJson) => {
 
 console.log(parsedHtmls);
 
-core.setOutput('parsedHtmls', parsedHtmls);
+core.setOutput("parsedHtmls: ", parsedHtmls);
