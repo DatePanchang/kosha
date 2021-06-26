@@ -38,11 +38,11 @@ jobs:
           # some custom processing.
           filters: |
             changed:
-              - '**/*.md'
-              - '**/*.html'
-              - '**/*.jpg'
-              - '**/*.png'
-              - '**/*.js'
+              - 'src/**/*.md'
+              - 'src/**/*.html'
+              - 'src/**/*.jpg'
+              - 'src/**/*.png'
+              - 'src/**/*.js'
 
       - name: Display file names
         id: htmls
