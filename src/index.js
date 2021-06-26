@@ -46,7 +46,7 @@ async function main() {
     )
     .map((fileName) => trimName(fileName).replace(".md", ".html"));
 
-  await customFileUtils.makeDir("rendered");
+  await customFileUtils.makeDir("rendered/promos/san/");
 
   fileNames
     .filter(
@@ -55,10 +55,14 @@ async function main() {
         (fileName.includes(".jpg") || fileName.includes(".png"))
     )
     .forEach(async (fileName) => {
-      await customFileUtils.makeDir("rendered/" + fileName);
+      await customFileUtils.makeDir(
+        "rendered/promos/san/" + trimName(fileName)
+      );
       fs.copyFile(
         path.normalize(__dirname + "/" + trimName(fileName)),
-        path.normalize(__dirname + "/rendered/" + trimName(fileName)),
+        path.normalize(
+          __dirname + "/rendered/promos/san/" + trimName(fileName)
+        ),
         (err) => {
           if (err) throw err;
           console.log("image copied to destination");
@@ -76,11 +80,13 @@ async function main() {
     const template = Handlebars.compile(templateHTMLAsString);
     console.log(template(Object.values(parsedJson)[0]));
 
-    await customFileUtils.makeDir("rendered/" + Object.keys(parsedJson)[0]);
+    await customFileUtils.makeDir(
+      "rendered/promos/san/" + Object.keys(parsedJson)[0]
+    );
 
     const fileNameForWriting =
       __dirname +
-      "/rendered/" +
+      "/rendered/promos/san/" +
       Object.keys(parsedJson)[0].replace(".md", ".html");
     fs.writeFile(
       fileNameForWriting,
