@@ -10,14 +10,14 @@ main();
 async function main() {
   console.log("dirname--", __dirname);
 
-  const templateFilePath = "template/template.html";
+  const templateFilePath = "src/template/template.html";
   if (!fs.existsSync(templateFilePath)) {
     throw Error("Template HTML doesnt exist");
   }
 
   let templateHTMLAsString = fs.readFileSync(templateFilePath, "utf8");
 
-  var allFileNames =
+  var fileNames =
     process.argv[2].includes("template.html") ||
     process.argv[2].includes("index.js")
       ? (await customFileUtils.getFiles(__dirname)).filter((fileName) =>
@@ -25,9 +25,7 @@ async function main() {
         )
       : process.argv[2].replace("[", "").replace("]", "").split(",");
 
-  console.log("FileNames: ", allFileNames);
-
-  const fileNames = allFileNames.filter((fileName) => fileName.includes("src/"));
+  console.log("FileNames: ", fileNames);
 
   const filteredFileNames = fileNames.filter(
     (fileName) => fs.existsSync(fileName) && fileName.includes(".md")
