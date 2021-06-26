@@ -8,7 +8,6 @@ const customFileUtils = require("./customFileUtils");
 main();
 
 async function main() {
-
   const templateFilePath = "src/template/template.html";
   if (!fs.existsSync(templateFilePath)) {
     throw Error("Template HTML doesnt exist");
@@ -32,48 +31,62 @@ async function main() {
     (fileName) => fs.existsSync(fileName) && fileName.includes(".md")
   );
 
-  function trimPath(arr) {
-    return arr.map((arrItem) => arrItem.substr(arrItem.indexOf("src/") + 4));
+  function trimName(name) {
+    return name.substr(name.indexOf("src/") + 4);
   }
 
-  
-
-  const deletedFiles = trimPath(
-    fileNames.filter(
+  const deletedFileNames = fileNames
+    .filter(
       (fileName) =>
         !fs.existsSync(fileName) &&
         (fileName.includes(".md") ||
           fileName.includes(".jpg") ||
           fileName.includes(".png"))
     )
-  ).map((fileName) => fileName.replace(".md", ".html"));
+    .map((fileName) => trimName(fileName).replace(".md", ".html"));
 
-  var parsedJsons = filteredFileNames.map((fileName) => {
-    var jsonString = JSON.parse(m2j.parse([fileName], {}));
-    var index = fileName.indexOf("src/");
-    var propName = fileName.substr(index + 4);
-    return { [propName]: Object.values(jsonString)[0] };
-  });
+  await customFileUtils.makeDir("rendered");
 
-  var changedJPGs = trimPath(
-    fileNames.filter(
+  fileNames
+    .filter(
       (fileName) =>
         fs.existsSync(fileName) &&
         (fileName.includes(".jpg") || fileName.includes(".png"))
     )
-  );
+    .forEach(async (fileName) => {
+      await customFileUtils.makeDir(fileName);
+      fs.copyFile(fileName, "rendered/" + trimName(fileName), (err) => {
+        if (err) throw err;
+        console.log("image copied to destination");
+      });
+    });
 
-  var parsedHtmls = parsedJsons.map((parsedJson) => {
-    const template = Handlebars.compile(templateHTMLAsString);
-    console.log(template(Object.values(parsedJson)[0]));
-    return {
-      [Object.keys(parsedJson)[0]]: template(Object.values(parsedJson)[0]),
-    };
+  var parsedJsons = filteredFileNames.map((fileName) => {
+    var jsonString = JSON.parse(m2j.parse([fileName], {}));
+
+    return { [trimName(fileName)]: Object.values(jsonString)[0] };
   });
 
-  console.log("parsedHtmls: ", parsedHtmls);
+  parsedJsons.forEach(async (parsedJson) => {
+    const template = Handlebars.compile(templateHTMLAsString);
+    console.log(template(Object.values(parsedJson)[0]));
 
-  core.setOutput("deletedFiles", deletedFiles);
-  core.setOutput("parsedHtmls", parsedHtmls);
-  core.setOutput("changedJPGs", changedJPGs);
+    await customFileUtils.makeDir(Object.keys(parsedJson)[0]);
+
+    fs.writeFile(
+      "rendered/" + Object.keys(parsedJson)[0].replace(".md", ".html"),
+      template(Object.values(parsedJson)[0]),
+      function (err) {
+        if (err) throw err;
+        console.log("Saved!");
+      }
+    );
+    // return {
+    //   [Object.keys(parsedJson)[0]]: template(Object.values(parsedJson)[0]),
+    // };
+  });
+
+  core.setOutput("deletedFileNames", deletedFileNames);
+  // core.setOutput("parsedHtmls", parsedHtmls);
+  // core.setOutput("changedImages", changedImages);
 }
