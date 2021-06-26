@@ -20,9 +20,9 @@ async function main() {
   var fileNames =
     process.argv[2].includes("template.html") ||
     process.argv[2].includes("index.js")
-      ? await customFileUtils
-          .getFiles(__dirname)
-          .filter((fileName) => fileName.includes(".md"))
+      ? (await customFileUtils.getFiles(__dirname)).filter((fileName) =>
+          fileName.includes(".md")
+        )
       : process.argv[2].replace("[", "").replace("]", "").split(",");
 
   console.log("FileNames: ", fileNames);
