@@ -36,6 +36,8 @@ async function main() {
     return arr.map((arrItem) => arrItem.substr(arrItem.indexOf("src/") + 4));
   }
 
+  
+
   const deletedFiles = trimPath(
     fileNames.filter(
       (fileName) =>
