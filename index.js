@@ -5,7 +5,9 @@ const fs = require("fs");
 const Handlebars = require("handlebars");
 const walk = require("./recurrsiveRead");
 
-const templateFilePath = path.resolve(__dirname, "./template/template.html");
+console.log("dirname", __dirname);
+
+const templateFilePath = "./template/template.html";
 if (!fs.existsSync(templateFilePath)) {
   throw Error("Template HTML doesnt exist");
 }
@@ -21,15 +23,18 @@ var fileNames =
 console.log("FileNames: ", fileNames);
 
 var parsedJsons = fileNames
-.filter((fileName) => fs.existsSync(fileName) && fileName.includes(".md"))
-.map((fileName) => {
-  console.log("FileName: ", fileName);
-  var jsonString = JSON.parse(m2j.parse([fileName], {}));
-  return { [fileName]: Object.values(jsonString)[0] };
-});
+  .filter((fileName) => fs.existsSync(fileName) && fileName.includes(".md"))
+  .map((fileName) => {
+    console.log("FileName: ", fileName);
+    var jsonString = JSON.parse(m2j.parse([fileName], {}));
+    return { [fileName]: Object.values(jsonString)[0] };
+  });
 
-var changedJPGs = fileNames
-.filter((fileName) => fs.existsSync(fileName) && (fileName.includes(".jpg") || fileName.includes(".png")))
+var changedJPGs = fileNames.filter(
+  (fileName) =>
+    fs.existsSync(fileName) &&
+    (fileName.includes(".jpg") || fileName.includes(".png"))
+);
 
 console.log("parsedJsons: ", parsedJsons);
 
