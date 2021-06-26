@@ -42,6 +42,7 @@ jobs:
               - '**/*.html'
               - '**/*.jpg'
               - '**/*.png'
+              - '**/*.js'
 
       - name: Display file names
         id: htmls
