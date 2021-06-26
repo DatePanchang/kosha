@@ -52,12 +52,13 @@ jobs:
           node src/index.js ${{ steps.filter.outputs.changed_files }}
 
       - name: Deploy
-        uses: lauchacarro/Azure-Storage-Action@v1.1
+        uses: bacongobbler/azure-blob-storage-upload@v1.1.1
         id: deploy
         with:
-          folder: "src/rendered/"
-          blob-container-name: '$web'
-          connection-string: ${{ secrets.STORAGE_CONNECTION_STRING }}
+          source_dir: "src/rendered/"
+          container_name: '$web'
+          extra_args: '--destination-path promos/utsav'
+          connection_string: ${{ secrets.STORAGE_CONNECTION_STRING }}
 #         run: |
 #           echo Displaying Output
 #           echo ${{ steps.htmls.outputs.parsedHtmls }}

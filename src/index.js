@@ -46,7 +46,7 @@ async function main() {
     )
     .map((fileName) => trimName(fileName).replace(".md", ".html"));
 
-  await customFileUtils.makeDir("rendered/promos/san/");
+  await customFileUtils.makeDir("rendered/");
 
   fileNames
     .filter(
@@ -56,12 +56,12 @@ async function main() {
     )
     .forEach(async (fileName) => {
       await customFileUtils.makeDir(
-        "rendered/promos/san/" + trimName(fileName)
+        "rendered/" + trimName(fileName)
       );
       fs.copyFile(
         path.normalize(__dirname + "/" + trimName(fileName)),
         path.normalize(
-          __dirname + "/rendered/promos/san/" + trimName(fileName)
+          __dirname + "/rendered/" + trimName(fileName)
         ),
         (err) => {
           if (err) throw err;
@@ -81,12 +81,12 @@ async function main() {
     console.log(template(Object.values(parsedJson)[0]));
 
     await customFileUtils.makeDir(
-      "rendered/promos/san/" + Object.keys(parsedJson)[0]
+      "rendered/" + Object.keys(parsedJson)[0]
     );
 
     const fileNameForWriting =
       __dirname +
-      "/rendered/promos/san/" +
+      "/rendered/" +
       Object.keys(parsedJson)[0].replace(".md", ".html");
     fs.writeFile(
       fileNameForWriting,
