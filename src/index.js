@@ -17,7 +17,9 @@ async function main() {
 
   let templateHTMLAsString = fs.readFileSync(templateFilePath, "utf8");
 
-  var fileNames =
+  var fileNames = ["asd"];
+
+  fileNames =
     process.argv[2].includes("template.html") ||
     process.argv[2].includes("index.js")
       ? (await customFileUtils.getFiles(__dirname)).filter((fileName) =>
@@ -31,27 +33,33 @@ async function main() {
     (fileName) => fs.existsSync(fileName) && fileName.includes(".md")
   );
 
-  const deletedFiles = fileNames
-    .filter(
+  function trimPath(arr) {
+    return arr.map((arrItem) => arrItem.substr(arrItem.indexOf("src/") + 4));
+  }
+
+  const deletedFiles = trimPath(
+    fileNames.filter(
       (fileName) =>
         !fs.existsSync(fileName) &&
         (fileName.includes(".md") ||
           fileName.includes(".jpg") ||
           fileName.includes(".png"))
     )
-    .map((fileName) => fileName.replace("src/", "").replace(".md", ".html"));
+  ).map((fileName) => fileName.replace(".md", ".html"));
 
   var parsedJsons = filteredFileNames.map((fileName) => {
     console.log("FileName: ", fileName);
     var jsonString = JSON.parse(m2j.parse([fileName], {}));
-    return { [fileName.replace("src/", "")]: Object.values(jsonString)[0] };
+    var index = fileName.indexOf("src/");
+    var propName = fileName.substr(index + 4);
+    return { [propName]: Object.values(jsonString)[0] };
   });
 
-  var changedJPGs = fileNames.filter(
+  var changedJPGs = trimPath(fileNames.filter(
     (fileName) =>
       fs.existsSync(fileName) &&
       (fileName.includes(".jpg") || fileName.includes(".png"))
-  );
+  ));
 
   console.log("parsedJsons: ", parsedJsons);
 
