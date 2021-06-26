@@ -50,9 +50,15 @@ jobs:
           echo Displaying List of changed Files
           echo ${{ steps.filter.outputs.changed_files }}
           node src/index.js ${{ steps.filter.outputs.changed_files }}
-          
+
       - name: Deploy
+        uses: lauchacarro/Azure-Storage-Action@v1.1
         id: deploy
-        run: |
-          echo Displaying Output
-          echo ${{ steps.htmls.outputs.parsedHtmls }}
+        with:
+          folder: "src/rendered/"
+          enabled-static-website: "true"
+          connection-string: ${{ secrets.STORAGE_CONNECTION_STRING }}
+#         run: |
+#           echo Displaying Output
+#           echo ${{ steps.htmls.outputs.parsedHtmls }}
+
