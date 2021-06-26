@@ -55,4 +55,4 @@ jobs:
         id: deploy
         run: |
           echo Displaying Output
-          echo ${{ steps.filter.outputs.parsedHtmls }}
+          echo ${{ steps.htmls.outputs.parsedHtmls }}
