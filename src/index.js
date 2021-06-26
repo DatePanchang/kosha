@@ -10,7 +10,7 @@ main();
 async function main() {
   console.log("dirname--", __dirname);
 
-  const templateFilePath = "./template/template.html";
+  const templateFilePath = "template/template.html";
   if (!fs.existsSync(templateFilePath)) {
     throw Error("Template HTML doesnt exist");
   }
