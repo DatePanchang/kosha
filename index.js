@@ -28,6 +28,9 @@ var parsedJsons = fileNames
   return { [fileName]: Object.values(jsonString)[0] };
 });
 
+var changedJPGs = fileNames
+.filter((fileName) => fs.existsSync(fileName) && (fileName.includes(".jpg") || fileName.includes(".png")))
+
 console.log("parsedJsons: ", parsedJsons);
 
 var parsedHtmls = parsedJsons.map((parsedJson) => {
@@ -40,4 +43,5 @@ var parsedHtmls = parsedJsons.map((parsedJson) => {
 
 console.log(parsedHtmls);
 
-core.setOutput("parsedHtmls: ", parsedHtmls);
+core.setOutput("parsedHtmls", parsedHtmls);
+core.setOutput("changedJPGs", changedJPGs);
