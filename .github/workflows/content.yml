@@ -48,4 +48,4 @@ jobs:
         run: |
           echo Displaying List of changed Files
           echo ${{ steps.filter.outputs.changed_files }}
-          node index.js ${{ steps.filter.outputs.changed_files }}
+          node src/index.js ${{ steps.filter.outputs.changed_files }}

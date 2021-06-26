@@ -4,7 +4,7 @@ const fs = require("fs");
 const readdir = promisify(fs.readdir);
 const stat = promisify(fs.stat);
 
-module.exports.getFiles = async (dir) => {
+const getFiles = async (dir) => {
   const subdirs = await readdir(dir);
   const files = await Promise.all(
     subdirs.map(async (subdir) => {
@@ -14,3 +14,5 @@ module.exports.getFiles = async (dir) => {
   );
   return files.reduce((a, f) => a.concat(f), []);
 };
+
+module.exports = { getFiles };
