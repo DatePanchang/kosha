@@ -4,6 +4,7 @@ const core = require("@actions/core");
 const fs = require("fs");
 const Handlebars = require("handlebars");
 const customFileUtils = require("./customFileUtils");
+const path = require("path");
 
 main();
 
@@ -54,11 +55,15 @@ async function main() {
         (fileName.includes(".jpg") || fileName.includes(".png"))
     )
     .forEach(async (fileName) => {
-      await customFileUtils.makeDir(fileName);
-      fs.copyFile(fileName, "rendered/" + trimName(fileName), (err) => {
-        if (err) throw err;
-        console.log("image copied to destination");
-      });
+      await customFileUtils.makeDir("rendered/" + fileName);
+      fs.copyFile(
+        path.normalize(__dirname + "/" + trimName(fileName)),
+        path.normalize(__dirname + "/rendered/" + trimName(fileName)),
+        (err) => {
+          if (err) throw err;
+          console.log("image copied to destination");
+        }
+      );
     });
 
   var parsedJsons = filteredFileNames.map((fileName) => {
@@ -71,10 +76,14 @@ async function main() {
     const template = Handlebars.compile(templateHTMLAsString);
     console.log(template(Object.values(parsedJson)[0]));
 
-    await customFileUtils.makeDir(Object.keys(parsedJson)[0]);
+    await customFileUtils.makeDir("rendered/" + Object.keys(parsedJson)[0]);
 
+    const fileNameForWriting =
+      __dirname +
+      "/rendered/" +
+      Object.keys(parsedJson)[0].replace(".md", ".html");
     fs.writeFile(
-      "rendered/" + Object.keys(parsedJson)[0].replace(".md", ".html"),
+      fileNameForWriting,
       template(Object.values(parsedJson)[0]),
       function (err) {
         if (err) throw err;
