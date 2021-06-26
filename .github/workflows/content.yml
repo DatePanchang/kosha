@@ -51,14 +51,21 @@ jobs:
           echo ${{ steps.filter.outputs.changed_files }}
           node src/index.js ${{ steps.filter.outputs.changed_files }}
 
-      - name: Deploy
-        uses: bacongobbler/azure-blob-storage-upload@779a18b594a1a7cf5412645e06c856324a8b01e5
-        id: deploy
+      - name: Azure CLI Action
+        uses: Azure/cli@1.0.4
         with:
-          source_dir: "src/rendered/"
-          container_name: '$web'
-          extra_args: '--destination-path promos/utsav'
-          connection_string: ${{ secrets.STORAGE_CONNECTION_STRING }}
+          # Specify the script here
+          inlineScript: |
+            az storage blob upload-batch -d '$web' -s "src/rendered/" --destination-path 'promos/utsav' --connection-string ${{ secrets.STORAGE_CONNECTION_STRING }}
+
+#       - name: Deploy
+#         uses: bacongobbler/azure-blob-storage-upload@779a18b594a1a7cf5412645e06c856324a8b01e5
+#         id: deploy
+#         with:
+#           source_dir: "src/rendered/"
+#           container_name: '$web'
+#           extra_args: '--destination-path promos/utsav'
+#           connection_string: ${{ secrets.STORAGE_CONNECTION_STRING }}
 #         run: |
 #           echo Displaying Output
 #           echo ${{ steps.htmls.outputs.parsedHtmls }}
