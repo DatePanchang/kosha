@@ -1,0 +1,46 @@
+name: MD to Html
+
+on:
+  pull_request:
+    branches:
+      - release
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    environment: release
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.1.5
+      - run: npm install
+
+      - name: Get Changed Files
+        uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          list-files: json
+          filters: |
+            changed:
+              - 'src/**/*.md'
+              - 'src/**/*.html'
+              - 'src/**/*.jpg'
+              - 'src/**/*.png'
+              - 'src/**/*.js'
+
+      - name: HTMLs to Deploy
+        id: htmls
+        run: |
+          echo Displaying List of changed Files
+          echo ${{ steps.filter.outputs.changed_files }}
+          node src/index.js ${{ steps.filter.outputs.changed_files }}
+
+      - name: Azure Login
+        uses: Azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+      - run: |
+          az storage blob upload-batch -d '$web' --account-name sarvajanik -s "src/rendered/" --destination-path 'promos/utsav' --auth-mode login
