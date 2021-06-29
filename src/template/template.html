@@ -39,7 +39,7 @@
         margin: auto;
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        align-items: flex-start;
         height: 56px;
         background: linear-gradient(
           180deg,
@@ -58,6 +58,7 @@
 
       #toolbar #home {
         margin: 5px;
+        margin-top: 7px;
         margin-left: 10px;
         background: url(/promos/images/home.svg);
         background-size: cover;
@@ -76,6 +77,7 @@
       }
 
       #toolbar #lang {
+        visibility: hidden;
         margin: 5px;
         margin-right: 10px;
         background: url(/promos/images/language_toggle_marathi.png);
@@ -227,6 +229,10 @@
         display: none;
       }
 
+      #short {
+        margin-bottom: 12px;
+      }
+
       .expander {
         padding: 0.75em 2em 0.75em 2em;
         margin: auto;
@@ -308,7 +314,7 @@
         src="/promos/images/textlogo.svg"
         alt="Date Panchang"
       />
-      <a href="#"></a>
+      <a id="lang" href="#"></a>
     </section>
     <section id="content">
       <article class="paper" id="banner">
