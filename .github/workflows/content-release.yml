@@ -1,4 +1,4 @@
-name: MD to Html
+name: MD to Html Release
 
 on:
   pull_request:
