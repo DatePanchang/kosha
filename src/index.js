@@ -55,28 +55,28 @@ async function main() {
   console.log("After mkdir -----------");
 
   var copyImagesPromises = fileNames
-  .filter(
-    (fileName) =>
-    fs.existsSync(fileName) &&
-    (fileName.includes(".jpg") || fileName.includes(".png"))
-  )
-  .map((fileName) => async () => {
-    await customFileUtils.makeDir(
-      "rendered/" + trimName(fileName)
-    );
-    fs.copyFile(
-      path.normalize(__dirname + "/" + trimName(fileName)),
-      path.normalize(
-        __dirname + "/rendered/" + trimName(fileName)
-        ),
-      (err) => {
-        if (err) throw err;
-        console.log("image copied to destination");
-      }
-    );
-    console.log('Copied file: ', fileName);
-  });
-  
+    .filter(
+      (fileName) =>
+      fs.existsSync(fileName) &&
+      (fileName.includes(".jpg") || fileName.includes(".png"))
+    )
+    .map(async (fileName) => {
+      await customFileUtils.makeDir(
+        "rendered/" + trimName(fileName)
+      );
+      fs.copyFile(
+        path.normalize(__dirname + "/" + trimName(fileName)),
+        path.normalize(
+          __dirname + "/rendered/" + trimName(fileName)
+          ),
+        (err) => {
+          if (err) throw err;
+          console.log("image copied to destination");
+        }
+      );
+      console.log('Copied file: ', fileName);
+    });
+    
   await Promise.all(copyImagesPromises)
 
   console.log('Copied all image files --------- ');
@@ -87,8 +87,11 @@ async function main() {
     return { [trimName(fileName)]: Object.values(jsonString)[0] };
   });
 
-  var writeHtmlPromises = parsedJsons.map((parsedJson) => async () => {
+  var writeHtmlPromises = parsedJsons.map(async (parsedJson) => {
     const template = Handlebars.compile(templateHTMLAsString);
+        
+    console.log('parsedJson: ', parsedJson);
+    
     console.log(template(Object.values(parsedJson)[0]));
 
     await customFileUtils.makeDir(
@@ -111,6 +114,8 @@ async function main() {
     //   [Object.keys(parsedJson)[0]]: template(Object.values(parsedJson)[0]),
     // };
   });
+
+  console.log('writeHtmlPromises: ', writeHtmlPromises)
   
   await Promise.all(writeHtmlPromises)
   
