@@ -20,7 +20,7 @@ async function main() {
 
   fileNames =
     process.argv[2].includes("template.html") ||
-    process.argv[2].includes("index.js")
+    process.argv[2].includes("index.js") || process.argv[2].includes(".yml")
       ? (await customFileUtils.getFiles(__dirname)).filter((fileName) =>
           (fileName.includes(".md") || fileName.includes(".jpg") || fileName.includes(".png"))
         )
