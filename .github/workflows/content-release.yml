@@ -30,6 +30,7 @@ jobs:
               - 'src/**/*.jpg'
               - 'src/**/*.png'
               - 'src/**/*.js'
+              - '**/*.yml'
 
       - name: HTMLs to Deploy
         id: htmls
