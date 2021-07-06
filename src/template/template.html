@@ -28,7 +28,7 @@
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        background-image: url("/promos/images/gold_bg.png");
+        background-image: url('/promos/images/gold_bg.png');
         background-repeat: repeat;
         overflow: hidden;
       }
@@ -349,10 +349,18 @@
         </header>
         <div id="description">
           <section id="short">
-            <article class="marathi">{{short}}</article>
+            <article class="marathi">
+              {{#short}}
+              <p>{{{this}}}</p>
+              {{/short}}
+            </article>
           </section>
           <section id="collapsible">
-            <article class="marathi">{{long}}</article>
+            <article class="marathi">
+              {{#long}}
+              <p>{{{this}}}</p>
+              {{/long}}
+            </article>
           </section>
           <button class="expander">See More</button>
         </div>
@@ -360,110 +368,110 @@
     </section>
     <script>
       $(document).ready(function () {
-        var oldURL = window.location.href;
-        var params = "";
-        if (oldURL.includes("?"))
-          params = "?" + oldURL.slice(oldURL.indexOf("?") + 1);
+        var oldURL = window.location.href
+        var params = ''
+        if (oldURL.includes('?'))
+          params = '?' + oldURL.slice(oldURL.indexOf('?') + 1)
 
-        $("#patrikaa").attr("href", $("#patrikaa").attr("href") + params);
-        $("#melan").attr("href", $("#melan").attr("href") + params);
-        $("#muhurta").attr("href", $("#muhurta").attr("href") + params);
+        $('#patrikaa').attr('href', $('#patrikaa').attr('href') + params)
+        $('#melan').attr('href', $('#melan').attr('href') + params)
+        $('#muhurta').attr('href', $('#muhurta').attr('href') + params)
 
-        if ($("#lang").hasClass("showEnglish")) {
-          console.log("inside showeng");
+        if ($('#lang').hasClass('showEnglish')) {
+          console.log('inside showeng')
           if (
-            $("#collapsible .english").text().length == 0 ||
-            $("#collapsible .english").text() == "null"
+            $('#collapsible .english').text().length == 0 ||
+            $('#collapsible .english').text() == 'null'
           ) {
-            console.log($("#collapsible .english").text());
-            $("#collapsible").css("display", "none");
-            $(".expander").css("display", "none");
+            console.log($('#collapsible .english').text())
+            $('#collapsible').css('display', 'none')
+            $('.expander').css('display', 'none')
           } else {
-            $(".expander").css("display", "block");
+            $('.expander').css('display', 'block')
           }
         } else {
-          console.log("inside showmar");
+          console.log('inside showmar')
           if (
-            $("#collapsible .marathi").text().length == 0 ||
-            $("#collapsible .marathi").text() == "null"
+            $('#collapsible .marathi').text().length == 0 ||
+            $('#collapsible .marathi').text() == 'null'
           ) {
-            console.log($("#collapsible .marathi").text());
-            $("#collapsible").css("display", "none");
-            $(".expander").css("display", "none");
+            console.log($('#collapsible .marathi').text())
+            $('#collapsible').css('display', 'none')
+            $('.expander').css('display', 'none')
           } else {
-            $(".expander").css("display", "block");
+            $('.expander').css('display', 'block')
           }
         }
 
-        $("#lang").click(function () {
-          $(this).toggleClass("showEnglish");
-          $(".marathi").toggle("fast");
-          $(".english").toggle("fast");
+        $('#lang').click(function () {
+          $(this).toggleClass('showEnglish')
+          $('.marathi').toggle('fast')
+          $('.english').toggle('fast')
 
-          if ($("#lang").hasClass("showEnglish")) {
-            console.log("inside showeng");
+          if ($('#lang').hasClass('showEnglish')) {
+            console.log('inside showeng')
             if (
-              $("#collapsible .english").text().length == 0 ||
-              $("#collapsible .english").text() == "null"
+              $('#collapsible .english').text().length == 0 ||
+              $('#collapsible .english').text() == 'null'
             ) {
-              console.log($("#collapsible .english").text());
-              $("#collapsible").css("display", "none");
-              $(".expander").css("display", "none");
+              console.log($('#collapsible .english').text())
+              $('#collapsible').css('display', 'none')
+              $('.expander').css('display', 'none')
             } else {
-              $(".expander").css("display", "block");
+              $('.expander').css('display', 'block')
             }
           } else {
-            console.log("inside showmar");
+            console.log('inside showmar')
             if (
-              $("#collapsible .marathi").text().length == 0 ||
-              $("#collapsible .marathi").text() == "null"
+              $('#collapsible .marathi').text().length == 0 ||
+              $('#collapsible .marathi').text() == 'null'
             ) {
-              console.log($("#collapsible .marathi").text());
-              $("#collapsible").css("display", "none");
-              $(".expander").css("display", "none");
+              console.log($('#collapsible .marathi').text())
+              $('#collapsible').css('display', 'none')
+              $('.expander').css('display', 'none')
             } else {
-              $(".expander").css("display", "block");
+              $('.expander').css('display', 'block')
             }
           }
-        });
+        })
 
-        $("#share").click(function () {
+        $('#share').click(function () {
           if (navigator.share) {
             navigator
               .share({
-                title: "जननशांती मुहूर्त",
+                title: 'जननशांती मुहूर्त',
                 url: window.location.href,
               })
               .then(() => {
-                console.log("Thanks for sharing!");
+                console.log('Thanks for sharing!')
               })
               .catch(() => {
                 var inputc = document.body.appendChild(
-                  document.createElement("input")
-                );
-                inputc.value = window.location.href;
-                inputc.focus();
-                inputc.select();
-                document.execCommand("copy");
-                inputc.parentNode.removeChild(inputc);
-                alert("Cannot Open Share Window! \n URL copied to Clipboard!");
-              });
+                  document.createElement('input')
+                )
+                inputc.value = window.location.href
+                inputc.focus()
+                inputc.select()
+                document.execCommand('copy')
+                inputc.parentNode.removeChild(inputc)
+                alert('Cannot Open Share Window! \n URL copied to Clipboard!')
+              })
           }
-        });
-        if ($("#collapsible .marathi").text().length > 0) {
-          if ($(".expander").hasClass("active")) {
-            $(".expander").text("See Less");
-          } else $(".expander").text("See More");
+        })
+        if ($('#collapsible .marathi').text().length > 0) {
+          if ($('.expander').hasClass('active')) {
+            $('.expander').text('See Less')
+          } else $('.expander').text('See More')
 
-          $(".expander").click(function () {
-            $("#collapsible").slideToggle();
-            if ($(this).hasClass("active")) $(this).text("See More");
-            else $(this).text("See Less");
+          $('.expander').click(function () {
+            $('#collapsible').slideToggle()
+            if ($(this).hasClass('active')) $(this).text('See More')
+            else $(this).text('See Less')
 
-            $(this).toggleClass("active");
-          });
+            $(this).toggleClass('active')
+          })
         }
-      });
+      })
     </script>
   </body>
 </html>
