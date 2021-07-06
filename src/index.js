@@ -92,8 +92,6 @@ async function main() {
         
     console.log('parsedJson: ', parsedJson);
     
-    console.log(template(Object.values(parsedJson)[0]));
-
     await customFileUtils.makeDir(
       "rendered/" + Object.keys(parsedJson)[0]
     );
@@ -102,12 +100,22 @@ async function main() {
       __dirname +
       "/rendered/" +
       Object.keys(parsedJson)[0].replace(".md", ".html");
+    const json = Object.values(parsedJson)[0];
+
+    if (json.long) {
+      json.long = json.long.split("\n")
+    }
+
+    if (json.short) {
+      json.short = json.short.split("\n")
+    }
+
     fs.writeFile(
       fileNameForWriting,
-      template(Object.values(parsedJson)[0]),
+      template(json),
       function (err) {
         if (err) throw err;
-        console.log(Object.values(parsedJson)[0], "Saved!");
+        console.log(json, "Saved!");
       }
     );
     // return {
