@@ -20,7 +20,7 @@ long:
   संदर्भ - कालसुसंगत आचारधर्म, धर्मशास्त्रीय निर्णय, भारतीय संस्कृतिकोश, धर्मशास्त्राचा इतिहास
 
 
-image: Ekadashi.jpg
+image: Ekadashi New.jpg
 uploadDate: 2021/07/20
 tags:
   - Ekadashi
