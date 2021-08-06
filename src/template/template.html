@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="Description"
+      content="Date Panchang, Kosha, {{title}} | {{titleEng}}, {{subtitle}}, Hindu Festival"
+    />
     <title>{{#if englishTitle}}{{englishTitle}}{{else}}{{title}}{{/if}}</title>
     <link
       rel="stylesheet"
@@ -28,7 +32,7 @@
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        background-image: url('/promos/images/gold_bg.png');
+        background-image: url("/promos/images/gold_bg.png");
         background-repeat: repeat;
         overflow: hidden;
       }
@@ -307,6 +311,14 @@
     </style>
   </head>
   <body>
+    <div id="fb-root"></div>
+    <script
+      async
+      defer
+      crossorigin="anonymous"
+      src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v11.0&appId=2562498197338206&autoLogAppEvents=1"
+      nonce="LZt1s27d"
+    ></script>
     <section id="toolbar">
       <a id="home" href="https://web.datepanchang.com"></a>
       <img
@@ -343,6 +355,16 @@
             <div id="leading">
               <div class="title-text marathi">{{title}}</div>
             </div>
+            <div
+              class="fb-like"
+              data-href="https://www.facebook.com/DatePanchang"
+              data-width="60"
+              data-layout="button_count"
+              data-action="like"
+              data-size="large"
+              data-share="true"
+              style="display: flex; align-items: center"
+            ></div>
             <a id="share" href="#"></a>
           </div>
           <div class="sub-title marathi">{{subtitle}}</div>
@@ -368,111 +390,111 @@
     </section>
     <script>
       $(document).ready(function () {
-        var oldURL = window.location.href
-        var params = ''
-        if (oldURL.includes('?'))
-          params = '?' + oldURL.slice(oldURL.indexOf('?') + 1)
+        var oldURL = window.location.href;
+        var params = "";
+        if (oldURL.includes("?"))
+          params = "?" + oldURL.slice(oldURL.indexOf("?") + 1);
 
-        $('#patrikaa').attr('href', $('#patrikaa').attr('href') + params)
-        $('#melan').attr('href', $('#melan').attr('href') + params)
-        $('#muhurta').attr('href', $('#muhurta').attr('href') + params)
+        $("#patrikaa").attr("href", $("#patrikaa").attr("href") + params);
+        $("#melan").attr("href", $("#melan").attr("href") + params);
+        $("#muhurta").attr("href", $("#muhurta").attr("href") + params);
 
-        if ($('#lang').hasClass('showEnglish')) {
-          console.log('inside showeng')
+        if ($("#lang").hasClass("showEnglish")) {
+          console.log("inside showeng");
           if (
-            $('#collapsible .english').text().length == 0 ||
-            $('#collapsible .english').text() == 'null'
+            $("#collapsible .english").text().length == 0 ||
+            $("#collapsible .english").text() == "null"
           ) {
-            console.log($('#collapsible .english').text())
-            $('#collapsible').css('display', 'none')
-            $('.expander').css('display', 'none')
+            console.log($("#collapsible .english").text());
+            $("#collapsible").css("display", "none");
+            $(".expander").css("display", "none");
           } else {
-            $('.expander').css('display', 'block')
+            $(".expander").css("display", "block");
           }
         } else {
-          console.log('inside showmar')
+          console.log("inside showmar");
           if (
-            $('#collapsible .marathi').text().length == 0 ||
-            $('#collapsible .marathi').text() == 'null'
+            $("#collapsible .marathi").text().length == 0 ||
+            $("#collapsible .marathi").text() == "null"
           ) {
-            console.log($('#collapsible .marathi').text())
-            $('#collapsible').css('display', 'none')
-            $('.expander').css('display', 'none')
+            console.log($("#collapsible .marathi").text());
+            $("#collapsible").css("display", "none");
+            $(".expander").css("display", "none");
           } else {
-            $('.expander').css('display', 'block')
+            $(".expander").css("display", "block");
           }
         }
 
-        $('#lang').click(function () {
-          $(this).toggleClass('showEnglish')
-          $('.marathi').toggle('fast')
-          $('.english').toggle('fast')
+        $("#lang").click(function () {
+          $(this).toggleClass("showEnglish");
+          $(".marathi").toggle("fast");
+          $(".english").toggle("fast");
 
-          if ($('#lang').hasClass('showEnglish')) {
-            console.log('inside showeng')
+          if ($("#lang").hasClass("showEnglish")) {
+            console.log("inside showeng");
             if (
-              $('#collapsible .english').text().length == 0 ||
-              $('#collapsible .english').text() == 'null'
+              $("#collapsible .english").text().length == 0 ||
+              $("#collapsible .english").text() == "null"
             ) {
-              console.log($('#collapsible .english').text())
-              $('#collapsible').css('display', 'none')
-              $('.expander').css('display', 'none')
+              console.log($("#collapsible .english").text());
+              $("#collapsible").css("display", "none");
+              $(".expander").css("display", "none");
             } else {
-              $('.expander').css('display', 'block')
+              $(".expander").css("display", "block");
             }
           } else {
-            console.log('inside showmar')
+            console.log("inside showmar");
             if (
-              $('#collapsible .marathi').text().length == 0 ||
-              $('#collapsible .marathi').text() == 'null'
+              $("#collapsible .marathi").text().length == 0 ||
+              $("#collapsible .marathi").text() == "null"
             ) {
-              console.log($('#collapsible .marathi').text())
-              $('#collapsible').css('display', 'none')
-              $('.expander').css('display', 'none')
+              console.log($("#collapsible .marathi").text());
+              $("#collapsible").css("display", "none");
+              $(".expander").css("display", "none");
             } else {
-              $('.expander').css('display', 'block')
+              $(".expander").css("display", "block");
             }
           }
-        })
+        });
 
-        $('#share').click(function () {
+        $("#share").click(function () {
           if (navigator.share) {
             navigator
               .share({
                 title:
-                  '{{#if englishTitle}}{{englishTitle}}{{else}}{{title}}{{/if}}',
+                  "{{#if englishTitle}}{{englishTitle}}{{else}}{{title}}{{/if}}",
                 url: window.location.href,
               })
               .then(() => {
-                console.log('Thanks for sharing!')
+                console.log("Thanks for sharing!");
               })
               .catch(() => {
                 var inputc = document.body.appendChild(
-                  document.createElement('input')
-                )
-                inputc.value = window.location.href
-                inputc.focus()
-                inputc.select()
-                document.execCommand('copy')
-                inputc.parentNode.removeChild(inputc)
-                alert('Cannot Open Share Window! \n URL copied to Clipboard!')
-              })
+                  document.createElement("input")
+                );
+                inputc.value = window.location.href;
+                inputc.focus();
+                inputc.select();
+                document.execCommand("copy");
+                inputc.parentNode.removeChild(inputc);
+                alert("Cannot Open Share Window! \n URL copied to Clipboard!");
+              });
           }
-        })
-        if ($('#collapsible .marathi').text().length > 0) {
-          if ($('.expander').hasClass('active')) {
-            $('.expander').text('See Less')
-          } else $('.expander').text('See More')
+        });
+        if ($("#collapsible .marathi").text().length > 0) {
+          if ($(".expander").hasClass("active")) {
+            $(".expander").text("See Less");
+          } else $(".expander").text("See More");
 
-          $('.expander').click(function () {
-            $('#collapsible').slideToggle()
-            if ($(this).hasClass('active')) $(this).text('See More')
-            else $(this).text('See Less')
+          $(".expander").click(function () {
+            $("#collapsible").slideToggle();
+            if ($(this).hasClass("active")) $(this).text("See More");
+            else $(this).text("See Less");
 
-            $(this).toggleClass('active')
-          })
+            $(this).toggleClass("active");
+          });
         }
-      })
+      });
     </script>
   </body>
 </html>
