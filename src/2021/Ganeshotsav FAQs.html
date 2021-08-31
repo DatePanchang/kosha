@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="Description"
+      content="Date Panchang, Kosha, गणेशोत्सव प्रश्नोत्तरे | Ganeshotsav FAQs, Hindu Festival"
+    />
+    <title>Ganeshotsav FAQs</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Mukta:300,400,500,600,800"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+      html {
+        margin: 0;
+        padding: 0;
+        scroll-behavior: smooth;
+      }
+
+      ::-webkit-scrollbar {
+        display: none;
+      }
+
+      body {
+        height: 100vh;
+        width: 100vw;
+        font-family: Mukta, sans-serif !important;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-image: url("/promos/images/gold_bg.png");
+        background-repeat: repeat;
+        overflow: hidden;
+      }
+
+      #toolbar {
+        width: 100%;
+        max-width: 912px;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        height: 56px;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 1) 0%,
+          rgba(255, 255, 255, 1) 35%,
+          rgba(242, 242, 242, 1) 89%,
+          rgba(246, 246, 246, 1) 100%
+        );
+        box-shadow: 0 4px 8px 0 rgba(185, 189, 190, 1);
+        -webkit-box-shadow: 0 4px 8px 0 rgba(185, 189, 190, 1);
+        -moz-box-shadow: 0 4px 8px 0 rgba(185, 189, 190, 1);
+        position: sticky;
+        border-bottom-right-radius: 24px;
+        border-bottom-left-radius: 24px;
+      }
+
+      #toolbar #home {
+        margin: 5px;
+        margin-top: 7px;
+        margin-left: 10px;
+        background: url(/promos/images/home.svg);
+        background-size: cover;
+        height: 36px;
+        width: 36px;
+        color: black;
+      }
+
+      #toolbar #home:hover {
+        transform: scale(1.1);
+      }
+
+      #toolbar #textlogo {
+        max-width: 100%;
+        max-height: 100%;
+      }
+
+      #toolbar #lang {
+        visibility: hidden;
+        margin: 5px;
+        margin-right: 10px;
+        background: url(/promos/images/language_toggle_marathi.png);
+        background-size: cover;
+        height: 48px;
+        width: 48px;
+        color: black;
+        transition: 0.3s ease-in-out;
+      }
+
+      #toolbar #lang.showEnglish {
+        transform: rotate(360deg);
+        background: url(/promos/images/language_toggle_english.png);
+      }
+
+      #content {
+        height: 90%;
+        max-width: 912px;
+        margin: auto;
+        padding: 1em;
+        overflow-y: auto;
+      }
+
+      .paper {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 1) 0%,
+          rgba(255, 255, 255, 1) 35%,
+          rgba(242, 242, 242, 1) 89%,
+          rgba(246, 246, 246, 1) 100%
+        );
+        box-shadow: 0 4px 16px 0 rgba(153, 167, 171, 1);
+        -webkit-box-shadow: 0 4px 16px 0 rgba(153, 167, 171, 1);
+        -moz-box-shadow: 0 4px 16px 0 rgba(153, 167, 171, 1);
+        border-radius: 24px;
+        margin-bottom: 1.3em;
+      }
+
+      #banner {
+        margin-bottom: 1em;
+        border-radius: 12px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+
+      #seva-header {
+        /* margin-top: 0.6em; */
+        margin-bottom: 0.2em;
+        display: flex;
+        flex-direction: column;
+        /* height: 40%; */
+      }
+
+      #seva-header #seva-image {
+        box-shadow: 0 2px 6px 0 rgba(153, 167, 171, 1);
+        -webkit-box-shadow: 0 2px 6px 0 rgba(153, 167, 171, 1);
+        -moz-box-shadow: 0 2px 6px 0 rgba(153, 167, 171, 1);
+        border-radius: 24px;
+        aspect-ratio: 2/1;
+        width: 100%;
+      }
+
+      #seva-header #seva-image img {
+        height: 200px;
+        width: 100%;
+        background-position: center;
+        background-size: cover;
+        border-radius: 21px 21px 0 0;
+      }
+
+      #seva-header #seva-title {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      #seva-title #leading {
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-left: 1.2em;
+        margin-top: 0.5em;
+      }
+
+      #leading .title-text {
+        margin-right: 0.1em;
+        margin-bottom: 0;
+        font-size: 42px;
+        font-weight: 600;
+        color: rgb(130, 57, 0);
+        text-shadow: 4px 4px 4px rgba(170, 170, 170, 0.288);
+      }
+
+      .formbtn {
+        margin: 0.3em;
+        font-size: clamp(20px, 6vw, 24px);
+        font-weight: 500;
+        color: #7a5000;
+        text-decoration: none;
+        /* border: 2px solid rgb(36, 36, 36); */
+        border-radius: 12px;
+        background: linear-gradient(to bottom, #dbf8ee 80%, #b2e2d2 100%);
+        box-shadow: 0 4px 16px 0 #130c09;
+        -webkit-box-shadow: 0 4px 8px 0 rgba(153, 167, 171, 1);
+        -moz-box-shadow: 0 4px 8px 0 rgba(153, 167, 171, 1);
+        padding: 8px;
+        transition: 0.2s;
+        min-width: 4em;
+        text-align: center;
+      }
+
+      .formbtn:hover {
+        transform: translateY(-2px) scale(1.05);
+      }
+
+      #seva-title #share {
+        margin: 18px 18px 0 24px;
+        background: url(/promos/images/share.svg);
+        background-size: cover;
+        height: 36px;
+        width: 36px;
+        color: black;
+      }
+
+      #seva-title #share:hover {
+        transform: translateY(-2px) scale(1.05);
+        transition: 0.2s;
+      }
+
+      #seva-header .sub-title {
+        margin-left: 0.9em;
+        margin-right: 0.9em;
+        font-size: 24px;
+        font-weight: 500;
+        color: rgb(130, 57, 0);
+      }
+
+      #description {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0.5em 1.2em 0 1em;
+        font-size: 21px;
+        font-weight: 500;
+        color: rgba(125, 75, 0, 0.788);
+      }
+
+      #description #collapsible {
+        display: none;
+      }
+
+      #short {
+        margin-bottom: 12px;
+      }
+
+      .expander {
+        padding: 0.75em 2em 0.75em 2em;
+        margin: auto;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        border: none;
+        background: linear-gradient(to bottom, #914304 80%, #8a4208 100%);
+        color: white;
+        box-shadow: 0 2px 8px 0 rgba(153, 167, 171, 1);
+        -webkit-box-shadow: 0 2px 8px 0 rgba(153, 167, 171, 1);
+        -moz-box-shadow: 0 2px 8px 0 rgba(153, 167, 171, 1);
+        border-radius: 24px;
+        transition-duration: 0.2s;
+        transform: scale(1);
+      }
+
+      .expander:hover {
+        transform: scale(1.1);
+      }
+
+      .expander:active {
+        transform: scale(1);
+      }
+
+      .english {
+        display: none;
+      }
+
+      .cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 0.5em;
+        margin-bottom: 1em;
+      }
+      .small-card {
+        flex-grow: unset;
+        border: 1px solid #6e3607;
+        border-radius: 12px;
+        padding: 0.3em 1em 0.3em 1em;
+        margin: 0.7em;
+        margin-top: 0.2em;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      span {
+        margin: 0.2em;
+      }
+
+      @media only screen and (max-width: 768px) {
+        #seva-title #leading {
+          display: block;
+          /* margin: 0 0 1em 1em; */
+        }
+
+        .formbtn {
+          margin: 0.3em;
+        }
+
+        .paper {
+          margin-bottom: 4.3em;
+        }
+
+        .small-card {
+          flex-grow: 1;
+          border: unset;
+          border-bottom: 1px solid #6e3607;
+          border-radius: unset;
+        }
+      }
+
+      .accordion .accordion-item {
+        border-bottom: 1px solid #e5e5e5;
+      }
+      .accordion .accordion-item button[aria-expanded="true"] {
+        border-bottom: 1px solid #6e3607;
+      }
+      .accordion button {
+        font-family: Mukta, sans-serif;
+        position: relative;
+        display: block;
+        text-align: left;
+        width: 100%;
+        padding: 0;
+        color: #7d4b00;
+        font-size: 1.2rem;
+        font-weight: 400;
+        border: none;
+        background: none;
+        outline: none;
+      }
+      .accordion button:hover,
+      .accordion button:focus {
+        cursor: pointer;
+        color: #6e3607;
+      }
+      .accordion button:hover::after,
+      .accordion button:focus::after {
+        cursor: pointer;
+        color: #6e3607;
+        border: 1px solid #6e3607;
+      }
+      .accordion button .accordion-title {
+        padding: 1em 1.5em 1em 0;
+      }
+      .accordion .accordion-header {
+        display: flex;
+        align-items: center;
+      }
+      .accordion button .icon::after {
+        display: block;
+        position: absolute;
+        content: "";
+        top: 5px;
+        left: 9px;
+        width: 2px;
+        height: 10px;
+        background: currentColor;
+      }
+      .accordion button[aria-expanded="true"] {
+        color: #6e3607;
+      }
+      .accordion button[aria-expanded="true"] .icon::after {
+        width: 0;
+      }
+      .accordion button[aria-expanded="true"] + .accordion-content {
+        opacity: 1;
+        max-height: 25em;
+        transition: max-height 500ms linear;
+        will-change: max-height;
+      }
+      .accordion .accordion-content {
+        opacity: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: opacity 200ms linear, max-height 200ms linear;
+        will-change: opacity, max-height;
+      }
+      .accordion .accordion-content p {
+        color: #6e3607;
+        font-size: 1.1rem;
+        font-weight: 400;
+        margin: 1em 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="fb-root"></div>
+    <script
+      async
+      defer
+      crossorigin="anonymous"
+      src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v11.0&appId=2562498197338206&autoLogAppEvents=1"
+      nonce="LZt1s27d"
+    ></script>
+    <section id="toolbar">
+      <a id="home" href="https://web.datepanchang.com"></a>
+      <img
+        id="textlogo"
+        src="/promos/images/textlogo.svg"
+        alt="Date Panchang"
+      />
+      <a id="lang" href="#"></a>
+    </section>
+    <section id="content">
+      <article class="paper" id="banner">
+        <a
+          class="formbtn"
+          id="patrikaa"
+          href="https://web.datepanchang.com/#/Seva/Patrikaa"
+        >
+          पत्रिका
+        </a>
+        <a
+          class="formbtn"
+          id="melan"
+          href="https://web.datepanchang.com/#/Seva/Melan"
+        >
+          कुंडली मेलन
+        </a>
+        <a class="formbtn" id="muhurta" href="https://web.datepanchang.com/">
+          मुहूर्त
+        </a>
+      </article>
+      <article class="paper">
+        <header id="seva-header">
+          <img
+            id="seva-image"
+            src="Ganeshotsav FAQs.jpg"
+            alt="Ganeshotsav FAQs"
+          />
+          <div id="seva-title">
+            <div id="leading">
+              <div class="title-text marathi">
+                गणेशोत्सव प्रश्नोत्तरे (FAQs)
+              </div>
+            </div>
+            <div
+              style="display: flex; flex-wrap: wrap; justify-content: center"
+            >
+              <div
+                class="fb-like"
+                data-href="https://www.facebook.com/DatePanchang"
+                data-width="60"
+                data-layout="button_count"
+                data-action="like"
+                data-size="large"
+                data-share="true"
+                style="display: flex; align-items: center"
+              ></div>
+              <a id="share" href="#"></a>
+            </div>
+          </div>
+          <div class="sub-title marathi">
+            गणेशपूजा व गणेशोत्सव संबंधी शंका समाधान
+          </div>
+        </header>
+        <div id="description">
+          <section id="short">
+            <article class="marathi">
+              <div class="accordion">
+                <div class="accordion-item">
+                  <button id="accordion-button-1" aria-expanded="false">
+                    <div class="accordion-header">
+                      <span class="accordion-title">
+                        घरात गणपतीची प्रतिष्ठापना सुरू करायची असल्यास आणि सुरू
+                        असलेली बंद करायची असल्यास नेमके काय करावे लागते?
+                      </span>
+                      <span class="material-icons"> add_circle_outline </span>
+                    </div>
+                  </button>
+                  <div class="accordion-content">
+                    <p>
+                      गणेश चतुर्थीचं व्रत हे प्रतिवार्षिक व्रत आहे. हा कुलधर्म
+                      किंवा कुलाचार नाही त्यामुळे ज्या व्यक्तीची घरात गणेशोत्सव
+                      सुरु करण्याची इच्छा असेल त्यांना गणेशोत्सव, गणपतीची
+                      प्रतिष्ठापना करता येते. त्यासाठी कोणत्याही वेगळ्या विधीची
+                      आवश्यकता नाही. तसेच एकदा सुरु केलेले व्रत शक्यतो अखंड सुरु
+                      ठेवावे मात्र काही अडचणींमुळे ते शक्य नसल्यास बंद देखील
+                      करता येते. जसा सुरु करण्यासाठी विधी नाही तसाच तो बंद
+                      करण्यासाठी देखील विधी नाही.
+                    </p>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <button id="accordion-button-1" aria-expanded="false">
+                    <div class="accordion-header">
+                      <span class="accordion-title">
+                        गणपतीची मूर्ती वाहत्या पाण्यात विसर्जित करावी असं
+                        सांगण्यात येतं त्यामागे नेमके काही कारण आहे का?
+                      </span>
+                      <span class="material-icons"> add_circle_outline </span>
+                    </div>
+                  </button>
+                  <div class="accordion-content">
+                    <p>
+                      या दिवशी पार्थिव गणेश पूजन सांगितलं आहे म्हणजे मातीच्या
+                      गणपतीची पूजा. पूर्वीच्या काळी लोक घराच्या परसातली माती
+                      किंवा नदी किनारची माती आणून घरीच मूर्ति तयार करून पूजन
+                      करीत. त्यामुळे नदीकाठच्या मातीपासून आलेली मूर्ती नदी अथवा
+                      प्रवाहित पाणी जिथे असेल अशा ठिकाणी विसर्जित करावी. तसेच
+                      वेदात सर्व देवता पाण्याच्या आश्रयाने असतात असे सांगितले
+                      आहे, पाण्यात विसर्जन करण्याला विशेष महत्व आहे त्यामुळे आता
+                      आपल्याला जिथे पाणी उपलब्ध असेल तिथे विसर्जन करावे. अनेक
+                      ठिकाणी स्वतंत्र हौद, तलाव केलेले असतात तेथील पाणी वाहते
+                      नसले तरीही त्यात विसर्जन करता येते. तसेच घरात मोठ्या
+                      बादलीत विसर्जन करता येईल.
+                    </p>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <button id="accordion-button-1" aria-expanded="false">
+                    <div class="accordion-header">
+                      <span class="accordion-title">
+                        गणपतीला दुर्वा आणि जास्वंदाची फुले वाहतात, त्यामागे काही
+                        विशेष कारण आहे का?
+                      </span>
+                      <span class="material-icons"> add_circle_outline </span>
+                    </div>
+                  </button>
+                  <div class="accordion-content">
+                    <p>
+                      आपल्याकडे सर्वच देवतांना विशिष्ट फुलं, पत्री वाहण्याची
+                      प्रथा आहे. जसे विठोबाला तुळस, शंकराला बेल, गणपतीला दूर्वा
+                      आणि जास्वंदाची फुले आवडण्याबाबत अनेक कथा आहेत. यासर्वच
+                      देवतांची वेगवेगळी वैशिष्ट्य आहेत ते तत्व आपल्यापर्यंत
+                      जास्तीत जास्त पोचावं यासाठी आपण त्यांचं पूजन करतो उत्सव
+                      साजरे करतो दूर्वांमध्ये श्री गणेशाचे तत्त्व जास्तीत जास्त
+                      प्रमाणात आकृष्ट करून घेण्याची क्षमता असते. त्यामुळे
+                      गणपतीला दूर्वा वाहिल्या जातात. या दूर्वा शक्यतो कोवळ्या
+                      अन् लहान आकाराच्या एकत्र जुडी करून वाहाव्यात. दूर्वांना ३,
+                      ५, ७ अशा विषम संख्येच्या पात्या असाव्या. गणपतीच्या पूजेत
+                      लाल वस्त्र, जास्वंदीसारखे लाल फूल, रक्तचंदन यांसारख्या लाल
+                      वस्तू वापरणे महत्त्वाचे मानले जाते. याचे कारण म्हणजे
+                      गणपतीचा वर्ण शेंदरी / लाल आहे. पूजेत वापरलेल्या वस्तूंच्या
+                      लाल रंगामुळे गणेशाचे तत्त्व मूर्तीकडे जास्त प्रमाणात
+                      आकृष्ट होते.
+                    </p>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <button id="accordion-button-1" aria-expanded="false">
+                    <div class="accordion-header">
+                      <span class="accordion-title">
+                        गणेशाची मूर्ती प्रतिष्ठापनेसाठी नेताना ज्याच्या हातात
+                        मुर्ती असेल त्या व्यक्तिने डोक्यावर टोपी घालणे किंवा
+                        रुमाल घेण्यामागचे कारण काय?
+                      </span>
+                      <span class="material-icons"> add_circle_outline </span>
+                    </div>
+                  </button>
+                  <div class="accordion-content">
+                    <p>
+                      कोणतेही धार्मिक कार्य करताना ठराविक वेषभूषा असते.
+                      पूर्वीच्या काळी सर्वच लोक डोक्यावर टोपी, मुंडासं, पगडी
+                      वापरीत असंत तसेच खांद्यावर उपरणं असे पूर्ण पोशाख केलेला
+                      असे. हल्ली तसे नसते म्हणून आवर्जून डोक्यावर टोपी घालावी
+                      लागते.
+                    </p>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <button id="accordion-button-1" aria-expanded="false">
+                    <div class="accordion-header">
+                      <span class="accordion-title">
+                        गणेश मूर्ती प्रतिष्ठापनेसाठी आणताना तिचा चेहरा अर्धवट
+                        झाकण्यामागचे कारण काय?
+                      </span>
+                      <span class="material-icons"> add_circle_outline </span>
+                    </div>
+                  </button>
+                  <div class="accordion-content">
+                    <p>
+                      गणेशमूर्ति प्रतिष्ठापनेला आणताना असा चेहरा झाकण्याची
+                      आवश्यकता नाही. काही प्रदेशात अशा प्रकारची रूढी आहे. पण
+                      धर्मशास्त्रीयदृष्ट्या त्याला काहीही कारण नाही.
+                    </p>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <button id="accordion-button-1" aria-expanded="false">
+                    <div class="accordion-header">
+                      <span class="accordion-title">
+                        गणपतीचा वार मंगळवार या मागचे कारण काय?
+                      </span>
+                      <span class="material-icons"> add_circle_outline </span>
+                    </div>
+                  </button>
+                  <div class="accordion-content">
+                    <p>
+                      अंगारक नावाचा गणेशाचा एक भक्त होता, अंगारक म्हणजेच मंगळ
+                      त्याला गणेशाने तसा वर दिला की इथून पुढे मंगळवार हा गणेशाचा
+                      वार म्हणून मानला जाईल.
+                    </p>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <button id="accordion-button-1" aria-expanded="false">
+                    <div class="accordion-header">
+                      <span class="accordion-title">
+                        गणपतीसमोर विशिष्ट संख्येच्या मोदकांचा प्रसाद ठेवला जातो
+                        त्यामागचे कारण काय?
+                      </span>
+                      <span class="material-icons"> add_circle_outline </span>
+                    </div>
+                  </button>
+                  <div class="accordion-content">
+                    <p>
+                      प्रत्येक देवतेच्या काही संख्या आहेत जसे १२ रवि, ११ रुद्र
+                      म्हणजेच शंकर त्याप्रमाणे गणेशाची संख्या २१ आहे म्हणून २१
+                      मोदकांचा नैवेद्य दाखविला जातो.
+                    </p>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <button id="accordion-button-1" aria-expanded="false">
+                    <div class="accordion-header">
+                      <span class="accordion-title">
+                        सध्या इको-फ्रेंडली गणेश मूर्तीबद्दल बोललं जातं, मग या
+                        गणेश मूर्ती घरात विसर्जन करणं कितपत शास्त्राला धरून आहे?
+                      </span>
+                      <span class="material-icons"> add_circle_outline </span>
+                    </div>
+                  </button>
+                  <div class="accordion-content">
+                    <p>
+                      आपले सर्व सणउत्सव हे निसर्गाशी सांगड घालूनच साजरे होतात.
+                      गणेशोत्सवातील गणपतीची मूर्ति मातीची असावी.. POP हे
+                      निसर्गासाठी हानिकारकही आहे आणि ती माती देखील नाही.
+                      त्यामुळे इको फ्रेंडली गणपति हा निसर्गाच्या आणि मातीच्या
+                      अधिक जवळ जाणारा असल्याने POP पेक्षा कधीही अधिक योग्य ठरेल.
+                      सर्वोत्तम पर्याय मातीच्या गणपतीचा असेल. मूर्तीचे विसर्जन
+                      पाण्यात करणे असे असल्याने घरी देखील मोठ्या बादलीत पाणी
+                      घेऊन विसर्जन करता येईल. नंतर ती बादली काही दिवस झाकून
+                      ठेवावी व कालांतराने ते पाणी व माती आपल्या घराच्या परसात,
+                      कुंड्यांमध्ये, बागेत वापरून टाकावे.
+                    </p>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <button id="accordion-button-1" aria-expanded="false">
+                    <div class="accordion-header">
+                      <span class="accordion-title">
+                        POP वापरल्यामुळं मूर्ती पाण्यात पूर्णपणे विरघळत नाहीत मग
+                        नंतर त्या जेसीबी ने उचलून इतर ठिकाणी हलवतात तर यामध्ये
+                        श्रद्धेला तड़ा जातो असं नाही का वाटतं?
+                      </span>
+                      <span class="material-icons"> add_circle_outline </span>
+                    </div>
+                  </button>
+                  <div class="accordion-content">
+                    <p>
+                      अशा पद्धतीने मूर्ति हाताळल्या जाताना पाहून वाईट नक्कीच
+                      वाटते पण याच्यातून आपणच मार्ग काढायला हवा.
+                      उत्सवप्रियतेमुळे गणेशमूर्तींचे आकार जसेजसे वाढत गेले तशी
+                      POP च्या मूर्तिंची आवश्यकता निर्माण झाली. सार्वजनिक
+                      गणेशोत्सव मंडळांनी उत्सवमूर्ति व पूजनाची मूर्ति अशा
+                      वेगवेगळ्या मूर्ति ठेवल्यास काही प्रमाणात ही समस्या कमी
+                      होईल. पूजनाकरिता ठेवली जाणारी छोटी मूर्ति मातीची असावी व
+                      तिचे विसर्जन करावे. मोठी मूर्ति तशीच ठेवून काही वर्ष
+                      वापरावी. घरगुती गणेशमूर्ति मातीच्याच असाव्यात. आपणच ही
+                      काळजी घेतल्यास असे प्रसंग उद्भवणार नाहीत.
+                    </p>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <button id="accordion-button-1" aria-expanded="false">
+                    <div class="accordion-header">
+                      <span class="accordion-title">
+                        गणेश मूर्तीची प्राण प्रतिष्ठा का करावी? त्याचा विधि करणं
+                        क्रमप्राप्त आहे का?
+                      </span>
+                      <span class="material-icons"> add_circle_outline </span>
+                    </div>
+                  </button>
+                  <div class="accordion-content">
+                    <p>
+                      आपण जेव्हा बाजारातून मूर्ति आणतो. पण जेव्हा आपण विधीवत्
+                      त्याचं पूजन करून प्राणप्रतिष्ठापना करतो तेव्हाच त्यात
+                      देवत्व येतं असं मानलं जातं. आपण केवळ मूर्तिचं पूजन करीत
+                      नाही तर त्यातील देवत्वाचं पूजन करतो त्यामुळे
+                      प्राणप्रतिष्ठापना व विधीवत् पूजन करणं आवश्यकच आहे.
+                      कोणत्याही देवतेचे मंत्रांनीच आवाहन व विसर्जन होत असते.
+                    </p>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <button id="accordion-button-1" aria-expanded="false">
+                    <div class="accordion-header">
+                      <span class="accordion-title">
+                        मूर्तीस फक्त पहिल्याच दिवशी बेल पत्र, दुर्वा आणि इतर
+                        फुले का वाहतात? इतर दिवशी का नाही?
+                      </span>
+                      <span class="material-icons"> add_circle_outline </span>
+                    </div>
+                  </button>
+                  <div class="accordion-content">
+                    <p>
+                      सर्वच देवतांना सर्व प्रकारची फुलं, पत्री वाहिली जात नाही.
+                      पण पार्थिव गणेशपूजनाच्या व्रतामध्ये गणेश चतुर्थीच्या दिवशी
+                      अशी पत्री वाहिलेली चालते असं सांगितलं आहे. एखाद्यानी रोजच
+                      वाहायची ठरवल्यास तसंही करता येईल. पण या दिवशी वाहण्याचं
+                      विशेष महत्त्व आहे.
+                    </p>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <button id="accordion-button-1" aria-expanded="false">
+                    <div class="accordion-header">
+                      <span class="accordion-title">
+                        श्री गणेश चतुर्थी ते अनंत चतुर्दशीपर्यंत गणेशतत्व
+                        पृथ्वीवर असतं असं म्हणतात मग या दरम्यान आराधना कशी
+                        करावी?
+                      </span>
+                      <span class="material-icons"> add_circle_outline </span>
+                    </div>
+                  </button>
+                  <div class="accordion-content">
+                    <p>
+                      श्रीगणेश चतुर्थीचं व्रत हे काही जणांकडे दीड दिवस, तीन
+                      दिवस, पाच दिवस, गौरी विसर्जनापर्यंत, अनंत चतुर्दशी पर्यंत
+                      अशा वेगवेगळ्या पद्धतीने केले जाते. या गणेशोत्सवाच्या काळात
+                      यथाशक्ती गणेशाची उपासना करून उत्सव साजरा करावा. ज्यांना
+                      गणपतीची जी स्तोत्रं / श्लोक येत असतील ते म्हणावेत.
+                      गणेशोत्सव हा घरातील प्रत्येकाने सहभागी होण्याचा उत्सव आहे
+                      त्यामध्ये लहानांपासून मोठ्यांपर्यंत, स्त्री-पुरुष सर्वचजण
+                      आपापल्यापरीने सहभाग देऊ शकतात. या कालावधीमध्ये घरातील
+                      वातावरण चांगले राहील प्रसन्न राहील याची काळजी घ्यावी.
+                      जेवढे दिवस आपल्या घरी गणेशोत्सव असेल तेवढे दिवस सकाळी व
+                      संध्याकाळी पूजा करावी दोन्ही वेळेस पूजा करणे शक्य नसल्यास
+                      सकाळी पूजा व संध्याकाळी किमान आरती करावी. गोडाधोडाचा
+                      स्वयपाक करावा, सात्विक अन्न खावे व आनंदात गणेशोत्सव साजरा
+                      करावा.
+                    </p>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <button id="accordion-button-1" aria-expanded="false">
+                    <div class="accordion-header">
+                      <span class="accordion-title">
+                        गणेश स्थापने दिवशी फक्त एकदाच आरती करावी, का दोन्ही वेळी
+                        करावी? (म्हणजे फक्त स्थापना झाल्यावर, की सकाळ संध्याकाळ)
+                      </span>
+                      <span class="material-icons"> add_circle_outline </span>
+                    </div>
+                  </button>
+                  <div class="accordion-content">
+                    <p>
+                      गणेशस्थापना केल्यावर विसर्जनापर्यंत रोज सकाळी व संध्याकाळी
+                      आरती करावी. स्थापनेच्या दिवशी सकाळी पूजा केली असली तरी
+                      संध्याकाळी आरती करावी.
+                    </p>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <button id="accordion-button-1" aria-expanded="false">
+                    <div class="accordion-header">
+                      <span class="accordion-title">
+                        या दहा दिवसात अथर्वशीर्ष पठण कसे करावे? किती आवर्तने
+                        करावीत?
+                      </span>
+                      <span class="material-icons"> add_circle_outline </span>
+                    </div>
+                  </button>
+                  <div class="accordion-content">
+                    <p>
+                      गणेशोत्सवाच्या काळात गणपति अथर्वशीर्ष सर्वत्र म्हणले जाते.
+                      ज्यांना अथर्वशीर्ष येत नसेल त्यांनी गणपतीचे कोणतेही इतर
+                      स्तोत्र म्हणले तरी चालते. अथर्वशीर्ष किमान एकदा, एकवीस
+                      वेळा किंवा एक हजारवेळा म्हणण्याची पद्धती आहे. एकदाच
+                      म्हणणाऱ्यांनी सुरुवातीपासून फलश्रुती पर्यंत संपूर्ण
+                      अथर्वशीर्ष म्हणावे. एकवीस किंवा एक हजारवेळा म्हणणाऱ्यांनी
+                      सुरुवातीचा भद्रं कर्णेभिः पासून शांतिः शांतिः पर्यंतचा
+                      शांतिपाठाचा भाग पहिल्या वेळेस म्हणावा नंतर नमस्ते गणपतये
+                      पासून श्रीवरदमूर्तये नमः पर्यंतच्या मंत्रांची आवर्तने
+                      करावीत व शेवटच्या आवर्तनाला फलश्रुतीचा भाग म्हणावा.
+                    </p>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <button id="accordion-button-1" aria-expanded="false">
+                    <div class="accordion-header">
+                      <span class="accordion-title">
+                        दररोजची पाद्य पूजा यासाठी काही ख़ास विधी आहे का?
+                      </span>
+                      <span class="material-icons"> add_circle_outline </span>
+                    </div>
+                  </button>
+                  <div class="accordion-content">
+                    <p>
+                      गणेशस्थापनेच्या दिवशी षोडशोपचार पूजा केली जाते. त्यानंतर
+                      विसर्जनाच्या दिवसापर्यंत किमान पंचोपचार पूजा म्हणजे
+                      अथर्वशीर्ष किंवा येत असेल ते गणपतीचं स्तोत्र म्हणून
+                      अभिषेक, गंध, फूल, अक्षता, उदबत्ती, नीरांजन लावणे व नैवेद्य
+                      आणि आरती एवढा विधी करता आल्यास अधिक चांगले.
+                    </p>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <button id="accordion-button-1" aria-expanded="false">
+                    <div class="accordion-header">
+                      <span class="accordion-title">
+                        प्राण प्रतिष्ठा झाल्यानंतर मूर्ती हलवू नये असं म्हणतात
+                        मग काही ठिकाणी ती हलवली जाते, (लक्ष्मी आल्यावर मध्ये
+                        ठेवली जाते) असं कसं?
+                      </span>
+                      <span class="material-icons"> add_circle_outline </span>
+                    </div>
+                  </button>
+                  <div class="accordion-content">
+                    <p>
+                      प्राणप्रतिष्ठापना झाल्यावर मूर्ति हलवू नये हे बरोबर आहे.
+                      काही जणांकडे मूर्ति हलवून लक्ष्मीपाशी नेवून ठेवण्याची
+                      प्रथा आहे. पण तसे करणे योग्य नाही. प्राणप्रतिष्ठापना
+                      झालेली मूर्ति विसर्जनापर्यंत शक्यतो हलवू नये.
+                    </p>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <button id="accordion-button-1" aria-expanded="false">
+                    <div class="accordion-header">
+                      <span class="accordion-title">
+                        २१ दूर्वा जोडीचा हार वाहणे, यासोबत अजुन काही विशिष्ट अशी
+                        फुलं वाहवीत का?
+                      </span>
+                      <span class="material-icons"> add_circle_outline </span>
+                    </div>
+                  </button>
+                  <div class="accordion-content">
+                    <p>
+                      गणपतीला दूर्वा आणि लाल रंगाची फुलं आवडतात असं सांगितलं
+                      जात. त्यामुळे अशा फुलांना प्राधान्य द्यावे. मात्र
+                      पूजेमध्ये नेहमीच त्या त्या ऋतुमध्ये मिळणाऱ्या फुलांचा
+                      विशेष सुगंधी वनस्पतींचा समावेश करण्यास सांगितला आहे
+                      त्यामुळे जी फुलं उपलब्ध असतील ती वहावीत. या ऋतूमध्ये आघाडा
+                      सर्वत्र मिळतो तो वहावा.
+                    </p>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <button id="accordion-button-1" aria-expanded="false">
+                    <div class="accordion-header">
+                      <span class="accordion-title">
+                        घरातील अन्य गणपतींच्या मूर्तीचं विसर्जन न करता केवळ याच
+                        दिवशी आणलेल्या मूर्तीचं विसर्जन का करतात?
+                      </span>
+                      <span class="material-icons"> add_circle_outline </span>
+                    </div>
+                  </button>
+                  <div class="accordion-content">
+                    <p>
+                      घरामध्ये देवघरामध्ये आपण धातूच्या मूर्ति ठेवतो व त्यांची
+                      चल प्राणप्रतिष्ठापना केलेली असते. काही लोक घरात इतरत्र
+                      शोभेसाठी गणपतीच्या मूर्ति ठेवतात पण त्यांची आपण रोज पूजा
+                      करीत नसतो. गणेशचतुर्थीच्या दिवशी आपण गणेशाची जी मूर्ति
+                      आणतो ती माती पासून तयार केलेली असते अशी मूर्ति खूप दिवस
+                      ठेवता येत नाही आणि हे पार्थिव गणेशाचं व्रत असल्याने त्याचं
+                      पाण्यात विसर्जन करायला सांगितलं आहे.
+                    </p>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <button id="accordion-button-1" aria-expanded="false">
+                    <div class="accordion-header">
+                      <span class="accordion-title">
+                        गणपतीची पूजा योग्यप्रकारे न झाल्यास गणपती रागावतो असा
+                        भीतीयुक्त समज आहे. यात किती तथ्य आहे? गणपतीची मूर्ती जरी
+                        प्रसन्न वाटत असली तरी मनात ही भीती का?
+                      </span>
+                      <span class="material-icons"> add_circle_outline </span>
+                    </div>
+                  </button>
+                  <div class="accordion-content">
+                    <p>
+                      आपण एखाद्या देवतेची पूजा करताना ती मनापासून व श्रद्धेनी
+                      करावी, मनापासून व श्रद्धापूर्वक पूजा करणाऱ्यांना अशी भीती
+                      वाटण्याचं कारण नाही. गणपति रागावतो या समजात काहीही तथ्य
+                      नाही. पूजेच्या संकल्पामध्येच असे म्हणलेले असते की माझ्या
+                      ज्ञानाप्रमाणे, मला उपलब्ध असलेल्या पूजा साहित्यानुसार हे
+                      गणेशा मी तुझे पूजन करीत आहे असे म्हणलेले आहे. गणपतीच्या
+                      बाबतीत उजव्या सोंडेचा गणपति आणू नये असे अनेक गैरसमज आहेत
+                      पण त्यात काहीही तथ्य नाही. आपण त्याचे विघ्नहर्ता म्हणजे
+                      विघ्नांचा नाश करणारा म्हणून पूजन करतो.
+                    </p>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <button id="accordion-button-1" aria-expanded="false">
+                    <div class="accordion-header">
+                      <span class="accordion-title">
+                        ज्यांना आपलं गोत्र माहीत नसेल त्यांच्यासाठी पूजा करताना
+                        काय उपाय योजना आहे?
+                      </span>
+                      <span class="material-icons"> add_circle_outline </span>
+                    </div>
+                  </button>
+                  <div class="accordion-content">
+                    <p>
+                      पूजेच्या संकल्पामध्ये गोत्रोच्चार करण्याची प्रथा आहे मात्र
+                      काही वेळेस आपले गोत्र माहीत नसते अशा वेळेस काश्यप गोत्राचा
+                      उच्चार करण्यास सांगितले आहे.
+                    </p>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <button id="accordion-button-1" aria-expanded="false">
+                    <div class="accordion-header">
+                      <span class="accordion-title">
+                        घरी गणेशाची स्थापना करताना गणेशमूर्ती लहानच असली पाहिजे,
+                        याबाबतीतचे काही नियम आहेत काय?
+                      </span>
+                      <span class="material-icons"> add_circle_outline </span>
+                    </div>
+                  </button>
+                  <div class="accordion-content">
+                    <p>
+                      घरातील गणेशाची मूर्ति साधारण वीतभर उंचीची असावी असा संकेत
+                      आहे. गणेशाची मूर्ति केवढी असावी असा कोणताही नियम नाही.
+                      मात्र पूजनाच्या दृष्टीने आणि १० दिवस ती नीट रहावी
+                      यादृष्टीने काही काळजी घेणे आवश्यक आहे. त्यामुळे घरातील
+                      गणेशाची मूर्ती साधारणतः एकवीत उंचीची असावी. ती व्यवस्थित
+                      आसनस्थ हवी. तिचे हात, पाय, डोळे, कान सुबक असतील असे
+                      पाहावे. हार घालताना, फुले वाहताना अडचण येऊ नये यासाठी
+                      मूर्तीचे पाठीमागचे हात व कान यामध्ये अंतर असेल अशीच मूर्ती
+                      आणावी. प्लास्टीक, फायबरच्या मूर्ती शास्त्राला मान्य नाहीत.
+                      मूर्ती शक्यतो चिकणमाती, शाडूची असावी.
+                    </p>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <button id="accordion-button-1" aria-expanded="false">
+                    <div class="accordion-header">
+                      <span class="accordion-title">
+                        गणेशाची मूर्ती घरात स्थापन करताना काही जणं एकावेळी दोन
+                        मूर्त्यांची स्थापना का करतात?
+                      </span>
+                      <span class="material-icons"> add_circle_outline </span>
+                    </div>
+                  </button>
+                  <div class="accordion-content">
+                    <p>
+                      घरामध्ये एका वेळेस दोन मूर्तींची स्थापना करण्याची काहीच
+                      आवश्यकता नाही. एका घरामध्ये पूजेत एकच मूर्ति असावी.
+                    </p>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <button id="accordion-button-1" aria-expanded="false">
+                    <div class="accordion-header">
+                      <span class="accordion-title">
+                        गणपती दीड दिवस, पाच दिवस, सात दिवस, गौरी गणपती, अकरा
+                        दिवस असा विविध कालावधीसाठी बसवतात? यामागचं काय कारण?
+                        सगळे एकाच कालावधीचे का नसतात?
+                      </span>
+                      <span class="material-icons"> add_circle_outline </span>
+                    </div>
+                  </button>
+                  <div class="accordion-content">
+                    <p>
+                      मुळातील गणेश चतुर्थीचे व्रत हे १० दिवसांचे नाही तर दीड
+                      दिवसांचेच आहे. लोकमान्य टिळकांनी जेव्हा गणेशोत्सवाला
+                      सार्वजनिक स्वरूप दिले तेव्हा चतुर्थी पासून अनंत चतुर्दशी
+                      पर्यंत गणेशोत्सव सुरु केला. अनेकांनी आपापल्या आवडीनुसार,
+                      सोयीनुसार तीन दिवस, पाच दिवस असे पर्याय निवडले त्यामुळे
+                      त्यात विविधता दिसून येते.
+                    </p>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <button id="accordion-button-1" aria-expanded="false">
+                    <div class="accordion-header">
+                      <span class="accordion-title">
+                        घरात गणपतीची प्रतिष्ठापना सुरू करायची असल्यास आणि सुरू
+                        असलेली बंद करायची असल्यास नेमके काय करावे लागते?
+                      </span>
+                      <span class="material-icons"> add_circle_outline </span>
+                    </div>
+                  </button>
+                  <div class="accordion-content">
+                    <p>
+                      गणेश चतुर्थीचं व्रत हे प्रतिवार्षिक व्रत आहे. हा कुलधर्म
+                      किंवा कुलाचार नाही त्यामुळे ज्या व्यक्तीची घरात गणेशोत्सव
+                      सुरु करण्याची इच्छा असेल त्यांना गणेशोत्सव, गणपतीची
+                      प्रतिष्ठापना करता येते. त्यासाठी कोणत्याही वेगळ्या विधीची
+                      आवश्यकता नाही. तसेच एकदा सुरु केलेले व्रत शक्यतो अखंड सुरु
+                      ठेवावे मात्र काही अडचणींमुळे ते शक्य नसल्यास बंद देखील
+                      करता येते. जसा सुरु करण्यासाठी विधी नाही तसाच तो बंद
+                      करण्यासाठी देखील विधी नाही.
+                    </p>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <button id="accordion-button-1" aria-expanded="false">
+                    <div class="accordion-header">
+                      <span class="accordion-title">
+                        गणपतीच्या पार्थिव मूर्तीचे पूजन करण्याचा शास्त्रोक्त
+                        प्रघात कधीपासून पडला?
+                      </span>
+                      <span class="material-icons"> add_circle_outline </span>
+                    </div>
+                  </button>
+                  <div class="accordion-content">
+                    <p>
+                      गणपतीचे अनेक अवतार मानले जातात त्यापैकी भाद्रपदातील गणेश
+                      चतुर्थीस पार्थिव गणेश पूजन सांगितले आहे. हा पूर्वापार सुरु
+                      असलेला प्रघात आहे.
+                    </p>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <button id="accordion-button-1" aria-expanded="false">
+                    <div class="accordion-header">
+                      <span class="accordion-title">
+                        घरगुती गणेशाची मूर्ती किती उंच असावी आणि का?
+                      </span>
+                      <span class="material-icons"> add_circle_outline </span>
+                    </div>
+                  </button>
+                  <div class="accordion-content">
+                    <p>
+                      घरातील गणेशाची मूर्ती साधारणतः एकवीत उंचीची असावी. ती
+                      व्यवस्थित आसनस्थ हवी. तिचे हात, पाय, डोळे, कान सुबक असतील
+                      असे पाहावे. हार घालताना, फुले वाहताना अडचण येऊ नये यासाठी
+                      मूर्तीचे पाठीमागचे हात व कान यामध्ये अंतर असेल अशीच मूर्ती
+                      आणावी. प्लास्टीक, फायबरच्या मूर्ती शास्त्राला मान्य नाहीत.
+                      मूर्ती शक्यतो चिकणमाती, शाडूची असावी.
+                    </p>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <button id="accordion-button-1" aria-expanded="false">
+                    <div class="accordion-header">
+                      <span class="accordion-title">
+                        गणपतीला लाल रंग का प्रिय आहे?
+                      </span>
+                      <span class="material-icons"> add_circle_outline </span>
+                    </div>
+                  </button>
+                  <div class="accordion-content">
+                    <p>
+                      गणेशाचा वर्ण शेंदरी / लाल आहे असा अनेक ग्रंथात उल्लेख
+                      आढळतो. त्यामुळे गणेशाला लाल फुले, लाल वस्त्र अर्पण केले
+                      जाते.
+                    </p>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <button id="accordion-button-1" aria-expanded="false">
+                    <div class="accordion-header">
+                      <span class="accordion-title">
+                        गणपतीचे विसर्जन करताना उत्तरपूजा का आवश्यक असते?
+                      </span>
+                      <span class="material-icons"> add_circle_outline </span>
+                    </div>
+                  </button>
+                  <div class="accordion-content">
+                    <p>
+                      ज्या प्रमाणे प्राणप्रतिष्ठापनेचा विधी असतो तसाच
+                      विसर्जनासाठी उत्तरपूजेचा विधी करावा लागतो.
+                    </p>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <button id="accordion-button-1" aria-expanded="false">
+                    <div class="accordion-header">
+                      <span class="accordion-title">
+                        घरी बसविलेल्या गणेशाचे तोंड कोणत्या दिशेस असावे?
+                      </span>
+                      <span class="material-icons"> add_circle_outline </span>
+                    </div>
+                  </button>
+                  <div class="accordion-content">
+                    <p>
+                      गणेशाच्या मूर्तिचे तोंड शक्यतो पूर्व – पश्चिम असावे, मात्र
+                      तसे नसल्यास पूजन कर्त्याचे तोंड दक्षिणेकडे होणार नाही याची
+                      काळजी घ्यावी.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </section>
+        </div>
+      </article>
+    </section>
+    <script>
+      $(document).ready(function () {
+        var oldURL = window.location.href;
+        var params = "";
+        if (oldURL.includes("?"))
+          params = "?" + oldURL.slice(oldURL.indexOf("?") + 1);
+
+        $("#patrikaa").attr("href", $("#patrikaa").attr("href") + params);
+        $("#melan").attr("href", $("#melan").attr("href") + params);
+        $("#muhurta").attr("href", $("#muhurta").attr("href") + params);
+
+        if ($("#lang").hasClass("showEnglish")) {
+          console.log("inside showeng");
+          if (
+            $("#collapsible .english").text().length == 0 ||
+            $("#collapsible .english").text() == "null"
+          ) {
+            console.log($("#collapsible .english").text());
+            $("#collapsible").css("display", "none");
+            $(".expander").css("display", "none");
+          } else {
+            $(".expander").css("display", "block");
+          }
+        } else {
+          console.log("inside showmar");
+          if (
+            $("#collapsible .marathi").text().length == 0 ||
+            $("#collapsible .marathi").text() == "null"
+          ) {
+            console.log($("#collapsible .marathi").text());
+            $("#collapsible").css("display", "none");
+            $(".expander").css("display", "none");
+          } else {
+            $(".expander").css("display", "block");
+          }
+        }
+
+        $("#lang").click(function () {
+          $(this).toggleClass("showEnglish");
+          $(".marathi").toggle("fast");
+          $(".english").toggle("fast");
+
+          if ($("#lang").hasClass("showEnglish")) {
+            console.log("inside showeng");
+            if (
+              $("#collapsible .english").text().length == 0 ||
+              $("#collapsible .english").text() == "null"
+            ) {
+              console.log($("#collapsible .english").text());
+              $("#collapsible").css("display", "none");
+              $(".expander").css("display", "none");
+            } else {
+              $(".expander").css("display", "block");
+            }
+          } else {
+            console.log("inside showmar");
+            if (
+              $("#collapsible .marathi").text().length == 0 ||
+              $("#collapsible .marathi").text() == "null"
+            ) {
+              console.log($("#collapsible .marathi").text());
+              $("#collapsible").css("display", "none");
+              $(".expander").css("display", "none");
+            } else {
+              $(".expander").css("display", "block");
+            }
+          }
+        });
+
+        $("#share").click(function () {
+          if (navigator.share) {
+            navigator
+              .share({
+                title:
+                  "{{#if englishTitle}}{{englishTitle}}{{else}}{{title}}{{/if}}",
+                url: window.location.href,
+              })
+              .then(() => {
+                console.log("Thanks for sharing!");
+              })
+              .catch(() => {
+                var inputc = document.body.appendChild(
+                  document.createElement("input")
+                );
+                inputc.value = window.location.href;
+                inputc.focus();
+                inputc.select();
+                document.execCommand("copy");
+                inputc.parentNode.removeChild(inputc);
+                alert("Cannot Open Share Window! \n URL copied to Clipboard!");
+              });
+          }
+        });
+        if ($("#collapsible .marathi").text().length > 0) {
+          if ($(".expander").hasClass("active")) {
+            $(".expander").text("See Less");
+          } else $(".expander").text("See More");
+
+          $(".expander").click(function () {
+            $("#collapsible").slideToggle();
+            if ($(this).hasClass("active")) $(this).text("See More");
+            else $(this).text("See Less");
+
+            $(this).toggleClass("active");
+          });
+        }
+
+        const items = document.querySelectorAll(".accordion button");
+
+        function toggleAccordion() {
+          const itemToggle = this.getAttribute("aria-expanded");
+
+          for (i = 0; i < items.length; i++) {
+            items[i].setAttribute("aria-expanded", "false");
+          }
+
+          if (itemToggle == "false") {
+            this.setAttribute("aria-expanded", "true");
+          }
+        }
+
+        items.forEach((item) =>
+          item.addEventListener("click", toggleAccordion)
+        );
+      });
+    </script>
+  </body>
+</html>
