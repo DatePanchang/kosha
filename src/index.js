@@ -18,6 +18,10 @@ async function main() {
 
   var fileNames = ["asd"];
 
+  function trimName(name) {
+    return name.substr(name.indexOf("src/") + 4);
+  }
+
   fileNames =
     process.argv[2].includes("template.html") ||
     process.argv[2].includes("index.js") ||
@@ -26,33 +30,12 @@ async function main() {
           (fileName) =>
             fileName.includes(".md") ||
             fileName.includes(".jpg") ||
-            fileName.includes(".png")
+            fileName.includes(".png") ||
+            fileName.includes(".html")
         )
       : process.argv[2].replace("[", "").replace("]", "").split(",");
 
   console.log("FileNames: ", fileNames);
-
-  const filteredFileNames = fileNames.filter(
-    (fileName) => fs.existsSync(fileName) && fileName.includes(".md")
-  );
-
-  console.log("filteredFileNames: ", filteredFileNames);
-
-  function trimName(name) {
-    return name.substr(name.indexOf("src/") + 4);
-  }
-
-  const deletedFileNames = fileNames
-    .filter(
-      (fileName) =>
-        !fs.existsSync(fileName) &&
-        (fileName.includes(".md") ||
-          fileName.includes(".jpg") ||
-          fileName.includes(".png"))
-    )
-    .map((fileName) => trimName(fileName).replace(".md", ".html"));
-
-  console.log("deletedFileNames: ", deletedFileNames);
 
   await customFileUtils.makeDir("rendered/");
 
@@ -82,7 +65,7 @@ async function main() {
     //     __dirname +
     //       "/" +
     //       trimName(
-    //         fs.existsSync(htmlImgFileName)
+    //         fs.existsSync(trimName(fileName))
     //           ? htmlFileName.replace(".html", ".jpg")
     //           : htmlFileName.replace(".html", ".png")
     //       )
@@ -98,6 +81,26 @@ async function main() {
   await Promise.all(copyHtmlPromises);
 
   console.log("Copied all html files --------- ");
+
+  const filteredFileNames = fileNames.filter(
+    (fileName) => fs.existsSync(fileName) && fileName.includes(".md")
+  );
+
+  console.log("filteredFileNames: ", filteredFileNames);
+
+  
+
+  const deletedFileNames = fileNames
+    .filter(
+      (fileName) =>
+        !fs.existsSync(fileName) &&
+        (fileName.includes(".md") ||
+          fileName.includes(".jpg") ||
+          fileName.includes(".png"))
+    )
+    .map((fileName) => trimName(fileName).replace(".md", ".html"));
+
+  console.log("deletedFileNames: ", deletedFileNames);
 
   var copyImagesPromises = fileNames
     .filter(
