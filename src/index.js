@@ -20,13 +20,49 @@ async function main() {
 
   fileNames =
     process.argv[2].includes("template.html") ||
-    process.argv[2].includes("index.js") || process.argv[2].includes(".yml")
-      ? (await customFileUtils.getFiles(__dirname)).filter((fileName) =>
-          (fileName.includes(".md") || fileName.includes(".jpg") || fileName.includes(".png"))
+    process.argv[2].includes("index.js") ||
+    process.argv[2].includes(".yml")
+      ? (await customFileUtils.getFiles(__dirname)).filter(
+          (fileName) =>
+            fileName.includes(".md") ||
+            fileName.includes(".jpg") ||
+            fileName.includes(".png")
         )
       : process.argv[2].replace("[", "").replace("]", "").split(",");
 
   console.log("FileNames: ", fileNames);
+
+  const existingHtmls = fileNames.filter(
+    (fileName) => fs.existsSync(fileName) && fileName.includes(".html")
+  );
+
+  existingHtmls.forEach((htmlFileName) => {
+    fs.copyFile(
+      path.normalize(__dirname + "/" + trimName(htmlFileName)),
+      path.normalize(__dirname + "/rendered/" + trimName(htmlFileName)),
+      (err) => {
+        if (err) throw err;
+        console.log("html copied to destination");
+      }
+    );
+    var htmlImgFileName = htmlFileName.replace(".html", ".jpg");
+    fs.copyFile(
+      path.normalize(
+        __dirname +
+          "/" +
+          trimName(
+            fs.existsSync(htmlImgFileName)
+              ? htmlFileName.replace(".html", ".jpg")
+              : htmlFileName.replace(".html", ".jpg")
+          )
+      ),
+      path.normalize(__dirname + "/rendered/" + trimName(htmlFileName)),
+      (err) => {
+        if (err) throw err;
+        console.log("html copied to destination");
+      }
+    );
+  });
 
   const filteredFileNames = fileNames.filter(
     (fileName) => fs.existsSync(fileName) && fileName.includes(".md")
@@ -57,29 +93,25 @@ async function main() {
   var copyImagesPromises = fileNames
     .filter(
       (fileName) =>
-      fs.existsSync(fileName) &&
-      (fileName.includes(".jpg") || fileName.includes(".png"))
+        fs.existsSync(fileName) &&
+        (fileName.includes(".jpg") || fileName.includes(".png"))
     )
     .map(async (fileName) => {
-      await customFileUtils.makeDir(
-        "rendered/" + trimName(fileName)
-      );
+      await customFileUtils.makeDir("rendered/" + trimName(fileName));
       fs.copyFile(
         path.normalize(__dirname + "/" + trimName(fileName)),
-        path.normalize(
-          __dirname + "/rendered/" + trimName(fileName)
-          ),
+        path.normalize(__dirname + "/rendered/" + trimName(fileName)),
         (err) => {
           if (err) throw err;
           console.log("image copied to destination");
         }
       );
-      console.log('Copied file: ', fileName);
+      console.log("Copied file: ", fileName);
     });
-    
-  await Promise.all(copyImagesPromises)
 
-  console.log('Copied all image files --------- ');
+  await Promise.all(copyImagesPromises);
+
+  console.log("Copied all image files --------- ");
 
   var parsedJsons = filteredFileNames.map((fileName) => {
     var jsonString = JSON.parse(m2j.parse([fileName], {}));
@@ -89,12 +121,10 @@ async function main() {
 
   var writeHtmlPromises = parsedJsons.map(async (parsedJson) => {
     const template = Handlebars.compile(templateHTMLAsString);
-        
-    console.log('parsedJson: ', parsedJson);
-    
-    await customFileUtils.makeDir(
-      "rendered/" + Object.keys(parsedJson)[0]
-    );
+
+    console.log("parsedJson: ", parsedJson);
+
+    await customFileUtils.makeDir("rendered/" + Object.keys(parsedJson)[0]);
 
     const fileNameForWriting =
       __dirname +
@@ -103,31 +133,27 @@ async function main() {
     const json = Object.values(parsedJson)[0];
 
     if (json.long) {
-      json.long = json.long.split("\n")
+      json.long = json.long.split("\n");
     }
 
     if (json.short) {
-      json.short = json.short.split("\n")
+      json.short = json.short.split("\n");
     }
 
-    fs.writeFile(
-      fileNameForWriting,
-      template(json),
-      function (err) {
-        if (err) throw err;
-        console.log(json, "Saved!");
-      }
-    );
+    fs.writeFile(fileNameForWriting, template(json), function (err) {
+      if (err) throw err;
+      console.log(json, "Saved!");
+    });
     // return {
     //   [Object.keys(parsedJson)[0]]: template(Object.values(parsedJson)[0]),
     // };
   });
 
-  console.log('writeHtmlPromises: ', writeHtmlPromises)
-  
-  await Promise.all(writeHtmlPromises)
-  
-  console.log('Written all html files --------- ');
+  console.log("writeHtmlPromises: ", writeHtmlPromises);
+
+  await Promise.all(writeHtmlPromises);
+
+  console.log("Written all html files --------- ");
 
   core.setOutput("deletedFileNames", deletedFileNames);
   // core.setOutput("parsedHtmls", parsedHtmls);
