@@ -32,38 +32,6 @@ async function main() {
 
   console.log("FileNames: ", fileNames);
 
-  const existingHtmls = fileNames.filter(
-    (fileName) => fs.existsSync(fileName) && fileName.includes(".html")
-  );
-
-  existingHtmls.forEach((htmlFileName) => {
-    fs.copyFile(
-      path.normalize(__dirname + "/" + trimName(htmlFileName)),
-      path.normalize(__dirname + "/rendered/" + trimName(htmlFileName)),
-      (err) => {
-        if (err) throw err;
-        console.log("html copied to destination");
-      }
-    );
-    var htmlImgFileName = htmlFileName.replace(".html", ".jpg");
-    fs.copyFile(
-      path.normalize(
-        __dirname +
-          "/" +
-          trimName(
-            fs.existsSync(htmlImgFileName)
-              ? htmlFileName.replace(".html", ".jpg")
-              : htmlFileName.replace(".html", ".jpg")
-          )
-      ),
-      path.normalize(__dirname + "/rendered/" + trimName(htmlFileName)),
-      (err) => {
-        if (err) throw err;
-        console.log("html copied to destination");
-      }
-    );
-  });
-
   const filteredFileNames = fileNames.filter(
     (fileName) => fs.existsSync(fileName) && fileName.includes(".md")
   );
@@ -89,6 +57,47 @@ async function main() {
   await customFileUtils.makeDir("rendered/");
 
   console.log("After mkdir -----------");
+
+  const existingHtmls = fileNames.filter(
+    (fileName) => fs.existsSync(fileName) && fileName.includes(".html")
+  );
+
+  console.log("existingHtmls: ", existingHtmls);
+
+  var copyHtmlPromises = existingHtmls.map(async (htmlFileName) => {
+    await customFileUtils.makeDir("rendered/" + trimName(htmlFileName));
+    fs.copyFile(
+      path.normalize(__dirname + "/" + trimName(htmlFileName)),
+      path.normalize(__dirname + "/rendered/" + trimName(htmlFileName)),
+      (err) => {
+        if (err) throw err;
+        console.log("html copied to destination");
+      }
+    );
+    console.log("Copied file: ", htmlFileName);
+
+    // var htmlImgFileName = htmlFileName.replace(".html", ".jpg");
+    // fs.copyFile(
+    //   path.normalize(
+    //     __dirname +
+    //       "/" +
+    //       trimName(
+    //         fs.existsSync(htmlImgFileName)
+    //           ? htmlFileName.replace(".html", ".jpg")
+    //           : htmlFileName.replace(".html", ".png")
+    //       )
+    //   ),
+    //   path.normalize(__dirname + "/rendered/" + trimName(htmlFileName)),
+    //   (err) => {
+    //     if (err) throw err;
+    //     console.log("html copied to destination");
+    //   }
+    // );
+  });
+
+  await Promise.all(copyHtmlPromises);
+
+  console.log("Copied all html files --------- ");
 
   var copyImagesPromises = fileNames
     .filter(
