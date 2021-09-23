@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>संकष्ट चतुर्थी</title>
+    <meta
+      name="description"
+      content="Date Panchang Sankashta Chaturthi(Angarak Chaturthi)"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Mukta:300,400,500,600,800"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+      html {
+        margin: 0;
+        padding: 0;
+        scroll-behavior: smooth;
+      }
+
+      ::-webkit-scrollbar {
+        display: none;
+      }
+
+      body {
+        height: 100vh;
+        width: 100vw;
+        font-family: Mukta, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-image: url("../../gold_bg.png");
+        background-repeat: repeat;
+        overflow: hidden;
+      }
+
+      #toolbar {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 56px;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 1) 0%,
+          rgba(255, 255, 255, 1) 35%,
+          rgba(242, 242, 242, 1) 89%,
+          rgba(246, 246, 246, 1) 100%
+        );
+        box-shadow: 0 4px 8px 0 rgba(185, 189, 190, 1);
+        -webkit-box-shadow: 0 4px 8px 0 rgba(185, 189, 190, 1);
+        -moz-box-shadow: 0 4px 8px 0 rgba(185, 189, 190, 1);
+        position: sticky;
+        border-radius: 0 0 24px 24px;
+        max-width: 920px;
+        margin: auto;
+      }
+
+      #toolbar #home {
+        margin: 5px;
+        margin-left: 10px;
+        background: url(../../home.svg);
+        background-size: cover;
+        height: 36px;
+        width: 36px;
+        color: black;
+      }
+
+      #toolbar #home:hover {
+        transform: scale(1.1);
+      }
+
+      #toolbar #textlogo {
+        max-width: 100%;
+        max-height: 100%;
+      }
+
+      #toolbar #lang {
+        margin: 5px;
+        margin-right: 10px;
+        background: url(../../language_toggle_marathi.png);
+        background-size: cover;
+        height: 48px;
+        width: 48px;
+        color: black;
+        transition: 0.3s ease-in-out;
+      }
+
+      #toolbar #lang.showEnglish {
+        transform: rotate(360deg);
+        background: url(../../language_toggle_english.png);
+      }
+
+      #content {
+        height: 90%;
+        max-width: 912px;
+        margin: auto;
+        padding: 1em;
+        overflow-y: auto;
+      }
+
+      .paper {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 1) 0%,
+          rgba(255, 255, 255, 1) 35%,
+          rgba(242, 242, 242, 1) 89%,
+          rgba(246, 246, 246, 1) 100%
+        );
+        box-shadow: 0 4px 16px 0 rgba(153, 167, 171, 1);
+        -webkit-box-shadow: 0 4px 16px 0 rgba(153, 167, 171, 1);
+        -moz-box-shadow: 0 4px 16px 0 rgba(153, 167, 171, 1);
+        border-radius: 24px;
+        margin-bottom: 1.3em;
+      }
+
+      #banner {
+        margin-bottom: 1em;
+        border-radius: 12px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+
+      #seva-header {
+        /* margin-top: 0.6em; */
+        margin-bottom: 0.2em;
+        display: flex;
+        flex-direction: column;
+        /* height: 40%; */
+      }
+
+      #seva-header #seva-image {
+        box-shadow: 0 2px 6px 0 rgba(153, 167, 171, 1);
+        -webkit-box-shadow: 0 2px 6px 0 rgba(153, 167, 171, 1);
+        -moz-box-shadow: 0 2px 6px 0 rgba(153, 167, 171, 1);
+        border-radius: 24px;
+        aspect-ratio: 2/1;
+        width: 100%;
+      }
+
+      #seva-header #seva-image img {
+        height: 200px;
+        width: 100%;
+        background-position: center;
+        background-size: cover;
+        border-radius: 21px 21px 0 0;
+      }
+
+      #seva-header #seva-title {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      #seva-title #leading {
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-left: 1.2em;
+        margin-top: 0.5em;
+      }
+
+      #leading .title-text {
+        margin-right: 0.1em;
+        margin-bottom: 0;
+        font-size: 42px;
+        font-weight: 600;
+        color: rgb(130, 57, 0);
+      }
+
+      .formbtn {
+        margin: 0.3em;
+        font-size: clamp(20px, 6vw, 24px);
+        font-weight: 500;
+        color: #7a5000;
+        text-decoration: none;
+        /* border: 2px solid rgb(36, 36, 36); */
+        border-radius: 12px;
+        background: linear-gradient(to bottom, #dbf8ee 80%, #b2e2d2 100%);
+        box-shadow: 0 4px 16px 0 #130c09;
+        -webkit-box-shadow: 0 4px 8px 0 rgba(153, 167, 171, 1);
+        -moz-box-shadow: 0 4px 8px 0 rgba(153, 167, 171, 1);
+        padding: 8px;
+        transition: 0.2s;
+        min-width: 4em;
+        text-align: center;
+      }
+
+      .formbtn:hover {
+        transform: translateY(-2px) scale(1.05);
+      }
+
+      #seva-title #share {
+        margin: 18px 18px 0 24px;
+        background: url(../../share.svg);
+        background-size: cover;
+        height: 36px;
+        width: 36px;
+        color: black;
+      }
+
+      #seva-title #share:hover {
+        transform: translateY(-2px) scale(1.05);
+        transition: 0.2s;
+      }
+
+      #seva-header .sub-title {
+        margin-left: 0.9em;
+        margin-right: 0.9em;
+        font-size: 24px;
+        font-weight: 500;
+        color: rgb(130, 57, 0);
+      }
+
+      #description {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0.5em 1.2em 0 1em;
+        font-size: 21px;
+        font-weight: 500;
+        color: rgba(125, 75, 0, 0.79);
+      }
+
+      #description #collapsible {
+        display: none;
+      }
+
+      .expander {
+        padding: 0.75em 2em 0.75em 2em;
+        margin: auto;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        border: none;
+        background: linear-gradient(to bottom, #914304 80%, #8a4208 100%);
+        color: white;
+        box-shadow: 0 2px 8px 0 rgba(153, 167, 171, 1);
+        -webkit-box-shadow: 0 2px 8px 0 rgba(153, 167, 171, 1);
+        -moz-box-shadow: 0 2px 8px 0 rgba(153, 167, 171, 1);
+        border-radius: 24px;
+        transition-duration: 0.2s;
+        transform: scale(1);
+      }
+
+      .expander:hover {
+        transform: scale(1.1);
+      }
+
+      .expander:active {
+        transform: scale(1);
+      }
+
+      .english {
+        display: none;
+      }
+
+      .cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 0.5em;
+        margin-bottom: 1em;
+      }
+
+      .small-card {
+        flex-grow: unset;
+        border: 1px solid #6e3607;
+        border-radius: 12px;
+        padding: 0.3em 1em 0.3em 1em;
+        margin: 0.7em;
+        margin-top: 0.2em;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      span {
+        margin: 0.2em;
+      }
+
+      @media only screen and (max-width: 768px) {
+        #seva-title #leading {
+          display: block;
+          /* margin: 0 0 1em 1em; */
+        }
+
+        .formbtn {
+          margin: 0.3em;
+        }
+
+        .paper {
+          margin-bottom: 4.3em;
+        }
+
+        .small-card {
+          flex-grow: 1;
+          border: unset;
+          border-bottom: 1px solid #6e3607;
+          border-radius: unset;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <section id="toolbar">
+      <a id="home" href="https://web.datepanchang.com/"></a>
+      <img
+        id="textlogo"
+        src="../../textlogo.svg"
+        alt="Date Panchang official text logo"
+      />
+      <a
+        href="https://web.datepanchang.com/promos/san/Sankashta%20Chaturthi/index.html"
+        style="visibility: hidden; width: 56px"
+        >asd</a
+      >
+    </section>
+    <section id="content">
+      <article class="paper" id="banner">
+        <a
+          class="formbtn"
+          id="patrikaa"
+          href="https://web.datepanchang.com/#/Seva/Patrikaa"
+        >
+          पत्रिका
+        </a>
+        <a
+          class="formbtn"
+          id="melan"
+          href="https://web.datepanchang.com/#/Seva/Melan"
+        >
+          कुंडली मेलन
+        </a>
+        <a class="formbtn" id="muhurta" href="https://web.datepanchang.com/">
+          मुहूर्त
+        </a>
+      </article>
+      <article class="paper">
+        <header id="seva-header">
+          <img
+            id="seva-image"
+            src="Sankashta Chaturthi.png"
+            alt="Sankashta Chaturthi"
+          />
+          <div id="seva-title">
+            <div id="leading">
+              <div class="title-text marathi">संकष्ट चतुर्थी</div>
+            </div>
+            <a
+              id="share"
+              href="https://web.datepanchang.com/promos/san/Sankashta%20Chaturthi/index.html"
+            ></a>
+          </div>
+          <div class="sub-title marathi">
+            कृष्ण पक्षातील चंद्रोदय व्यापिनी चतुर्थीचे दिवशी हे व्रत केले जाते.
+          </div>
+        </header>
+        <div id="description">
+          <section id="short">
+            <article class="marathi">
+              श्रीगणपतीच्या व्रतांपैकी हे दर महिन्यास येणारे एक संकटनाशक,
+              महासिद्धिदायक असे व्रत आहे. प्रत्येक महिन्याच्या कृष्ण पक्षात जी
+              चतुर्थी असते, त्या चतुर्थीस 'संकष्ट चतुर्थी' असे म्हणतात. या दिवशी
+              दिवसभर उपवास करावयाचा असतो. सायंकाळी अंघोळ करून अथर्वशीर्ष अथवा
+              गणेशाचे जे स्तोत्र येत असेल ते म्हणत गणपतीची षोडशोपचार पूजा करावी,
+              गणेशाला दूर्वा आणि लाल फूल प्रिय मानले जाते त्यामुळे या दिवशी
+              पूजनामध्ये किमान २१ दूर्वांची एक तरी जुडी आणि लाल फूल वाहतात. गणेश
+              पूजनानंतर त्यानंतर चंद्राची पूजा करावी, चंद्रदर्शनानंतर भोजन करून
+              उपवास सोडावा. श्रीगणपती ही विघ्ननाशक देवता असल्याने या व्रताने
+              सर्व विघ्नांचा नाश होतो. मंगळ ग्रहाच्या अनेक नावांपैकी एक नाव
+              अंगारक आहे. संकष्ट चतुर्थी मंगळवारी आली असता, अंगारक योग होतो. या
+              चतुर्थीस अंगारक योग असेही नांव आहे. मंगळाच्या तपश्चर्येने प्रसन्न
+              झालेल्या गणेशाने मंगळास आशीर्वाद दिला त्यामुळे या व्रतास विशेष
+              महत्त्व प्राप्त झाले. दर महिन्याचे संकष्ट चतुर्थीचे व्रत न करणारे
+              देखील अंगारक चतुर्थीचे व्रत आवर्जून करतात. अंगारक चतुर्थीच्या
+              व्रताने संपूर्ण वर्षभरातील चतुर्थी केल्याचे फल मिळते, असे मानले
+              जाते. भारतातील काही प्रमुख गावांच्या संकष्टी चतुर्थीच्या वेळा खाली
+              दिलेल्या आहेत.
+              <br />
+              <br />
+              <div
+                style="margin: auto; width: 90%; height: 400px; padding: 1em"
+              >
+                <iframe
+                  src="https://docs.google.com/spreadsheets/d/e/2PACX-1vS-41ORdxxZIEx4ODrmIGNgq7EzI1Q66INuJ_YgtT_6JR8wktp1JTmk50oSGZGT1y9H_n1cTJXqKJlU/pubhtml?gid=452570802&amp;single=true&amp;widget=true&amp;headers=false"
+                  style="width: 100%; height: 100%"
+                ></iframe>
+              </div>
+            </article>
+          </section>
+        </div>
+      </article>
+    </section>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        var oldURL = window.location.href;
+        var domainURL = "https://web.datepanchang.com";
+        var params = "";
+        if (oldURL.includes("?"))
+          params = "?" + oldURL.slice(oldURL.indexOf("?") + 1);
+
+        $("#patrikaa").attr("href", $("#patrikaa").attr("href") + params);
+        $("#melan").attr("href", $("#melan").attr("href") + params);
+        $("#muhurta").attr("href", $("#muhurta").attr("href") + params);
+
+        if ($("#lang").hasClass("showEnglish")) {
+          console.log("inside showeng");
+          if (
+            $("#collapsible .english").text().length == 0 ||
+            $("#collapsible .english").text() == "null"
+          ) {
+            console.log($("#collapsible .english").text());
+            $("#collapsible").css("display", "none");
+            $(".expander").css("display", "none");
+          } else {
+            $(".expander").css("display", "block");
+          }
+        } else {
+          console.log("inside showmar");
+          if (
+            $("#collapsible .marathi").text().length == 0 ||
+            $("#collapsible .marathi").text() == "null"
+          ) {
+            console.log($("#collapsible .marathi").text());
+            $("#collapsible").css("display", "none");
+            $(".expander").css("display", "none");
+          } else {
+            $(".expander").css("display", "block");
+          }
+        }
+
+        $("#lang").click(function () {
+          $(this).toggleClass("showEnglish");
+          $(".marathi").toggle("fast");
+          $(".english").toggle("fast");
+
+          if ($("#lang").hasClass("showEnglish")) {
+            console.log("inside showeng");
+            if (
+              $("#collapsible .english").text().length == 0 ||
+              $("#collapsible .english").text() == "null"
+            ) {
+              console.log($("#collapsible .english").text());
+              $("#collapsible").css("display", "none");
+              $(".expander").css("display", "none");
+            } else {
+              $(".expander").css("display", "block");
+            }
+          } else {
+            console.log("inside showmar");
+            if (
+              $("#collapsible .marathi").text().length == 0 ||
+              $("#collapsible .marathi").text() == "null"
+            ) {
+              console.log($("#collapsible .marathi").text());
+              $("#collapsible").css("display", "none");
+              $(".expander").css("display", "none");
+            } else {
+              $(".expander").css("display", "block");
+            }
+          }
+        });
+
+        $("#share").click(function () {
+          if (navigator.share) {
+            navigator
+              .share({
+                title: "जननशांती मुहूर्त",
+                url: window.location.href,
+              })
+              .then(() => {
+                console.log("Thanks for sharing!");
+              })
+              .catch(() => {
+                var inputc = document.body.appendChild(
+                  document.createElement("input")
+                );
+                inputc.value = window.location.href;
+                inputc.focus();
+                inputc.select();
+                document.execCommand("copy");
+                inputc.parentNode.removeChild(inputc);
+                alert("Cannot Open Share Window! \n URL copied to Clipboard!");
+              });
+          }
+        });
+        if ($("#collapsible .marathi").text().length > 0) {
+          if ($(".expander").hasClass("active")) {
+            $(".expander").text("See Less");
+          } else $(".expander").text("See More");
+
+          $(".expander").click(function () {
+            $("#collapsible").slideToggle();
+            if ($(this).hasClass("active")) $(this).text("See More");
+            else $(this).text("See Less");
+
+            $(this).toggleClass("active");
+          });
+        }
+      });
+    </script>
+    <script
+      defer=""
+      src="./संकष्ट चतुर्थी_files/beacon.min.js.download"
+      data-cf-beacon='{"rayId":"672cfd6878d02eaa","version":"2021.7.0","r":1,"token":"eebd8bdd709c46ecbdc4cd83b62e0de4","si":10}'
+    ></script>
+  </body>
+</html>
