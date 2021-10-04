@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>संकष्ट चतुर्थी</title>
     <meta
-      name="Description"
-      content="Date Panchang, Kosha, {{title}} | {{titleEng}}, {{subtitle}}, Hindu Festival"
+      name="description"
+      content="Date Panchang Sankashta Chaturthi(Angarak Chaturthi)"
     />
-    <title>{{#if englishTitle}}{{englishTitle}}{{else}}{{title}}{{/if}}</title>
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Mukta:300,400,500,600,800"
@@ -32,18 +32,16 @@
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        background-image: url("/promos/images/gold_bg.png");
+        background-image: url("../../gold_bg.png");
         background-repeat: repeat;
         overflow: hidden;
       }
 
       #toolbar {
         width: 100%;
-        max-width: 912px;
-        margin: auto;
         display: flex;
         justify-content: space-between;
-        align-items: flex-start;
+        align-items: center;
         height: 56px;
         background: linear-gradient(
           180deg,
@@ -56,15 +54,15 @@
         -webkit-box-shadow: 0 4px 8px 0 rgba(185, 189, 190, 1);
         -moz-box-shadow: 0 4px 8px 0 rgba(185, 189, 190, 1);
         position: sticky;
-        border-bottom-right-radius: 24px;
-        border-bottom-left-radius: 24px;
+        border-radius: 0 0 24px 24px;
+        max-width: 920px;
+        margin: auto;
       }
 
       #toolbar #home {
         margin: 5px;
-        margin-top: 7px;
         margin-left: 10px;
-        background: url(/promos/images/home.svg);
+        background: url(../../home.svg);
         background-size: cover;
         height: 36px;
         width: 36px;
@@ -81,10 +79,9 @@
       }
 
       #toolbar #lang {
-        visibility: hidden;
         margin: 5px;
         margin-right: 10px;
-        background: url(/promos/images/language_toggle_marathi.png);
+        background: url(../../language_toggle_marathi.png);
         background-size: cover;
         height: 48px;
         width: 48px;
@@ -94,7 +91,7 @@
 
       #toolbar #lang.showEnglish {
         transform: rotate(360deg);
-        background: url(/promos/images/language_toggle_english.png);
+        background: url(../../language_toggle_english.png);
       }
 
       #content {
@@ -199,7 +196,7 @@
 
       #seva-title #share {
         margin: 18px 18px 0 24px;
-        background: url(/promos/images/share.svg);
+        background: url(../../share.svg);
         background-size: cover;
         height: 36px;
         width: 36px;
@@ -231,10 +228,6 @@
 
       #description #collapsible {
         display: none;
-      }
-
-      #short {
-        margin-bottom: 12px;
       }
 
       .expander {
@@ -272,6 +265,7 @@
         margin-top: 0.5em;
         margin-bottom: 1em;
       }
+
       .small-card {
         flex-grow: unset;
         border: 1px solid #6e3607;
@@ -310,23 +304,20 @@
       }
     </style>
   </head>
+
   <body>
-    <div id="fb-root"></div>
-    <script
-      async
-      defer
-      crossorigin="anonymous"
-      src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v11.0&appId=2562498197338206&autoLogAppEvents=1"
-      nonce="LZt1s27d"
-    ></script>
     <section id="toolbar">
-      <a id="home" href="https://web.datepanchang.com"></a>
+      <a id="home" href="https://web.datepanchang.com/"></a>
       <img
         id="textlogo"
-        src="/promos/images/textlogo.svg"
-        alt="Date Panchang"
+        src="../../textlogo.svg"
+        alt="Date Panchang official text logo"
       />
-      <a id="lang" href="#"></a>
+      <a
+        href="https://web.datepanchang.com/promos/san/Sankashta%20Chaturthi/index.html"
+        style="visibility: hidden; width: 56px"
+        >asd</a
+      >
     </section>
     <section id="content">
       <article class="paper" id="banner">
@@ -350,51 +341,64 @@
       </article>
       <article class="paper">
         <header id="seva-header">
-          <img id="seva-image" src="{{image}}" alt="{{titleEng}}" />
+          <img
+            id="seva-image"
+            src="Sankashta Chaturthi.png"
+            alt="Sankashta Chaturthi"
+          />
           <div id="seva-title">
             <div id="leading">
-              <div class="title-text marathi">{{title}}</div>
+              <div class="title-text marathi">संकष्ट चतुर्थी</div>
             </div>
-            <div
-              style="display: flex; flex-wrap: wrap; justify-content: center"
-            >
-              <div
-                class="fb-like"
-                data-href="https://www.facebook.com/DatePanchang"
-                data-width="60"
-                data-layout="button_count"
-                data-action="like"
-                data-size="large"
-                data-share="true"
-                style="display: flex; align-items: center"
-              ></div>
-              <a id="share" href="#"></a>
-            </div>
+            <a
+              id="share"
+              href="https://web.datepanchang.com/promos/san/Sankashta%20Chaturthi/index.html"
+            ></a>
           </div>
-          <div class="sub-title marathi">{{subtitle}}</div>
+          <div class="sub-title marathi">
+            कृष्ण पक्षातील चंद्रोदय व्यापिनी चतुर्थीचे दिवशी हे व्रत केले जाते.
+          </div>
         </header>
         <div id="description">
           <section id="short">
             <article class="marathi">
-              {{#short}}
-              <p>{{{this}}}</p>
-              {{/short}}
+              श्रीगणपतीच्या व्रतांपैकी हे दर महिन्यास येणारे एक संकटनाशक,
+              महासिद्धिदायक असे व्रत आहे. प्रत्येक महिन्याच्या कृष्ण पक्षात जी
+              चतुर्थी असते, त्या चतुर्थीस 'संकष्ट चतुर्थी' असे म्हणतात. या दिवशी
+              दिवसभर उपवास करावयाचा असतो. सायंकाळी अंघोळ करून अथर्वशीर्ष अथवा
+              गणेशाचे जे स्तोत्र येत असेल ते म्हणत गणपतीची षोडशोपचार पूजा करावी,
+              गणेशाला दूर्वा आणि लाल फूल प्रिय मानले जाते त्यामुळे या दिवशी
+              पूजनामध्ये किमान २१ दूर्वांची एक तरी जुडी आणि लाल फूल वाहतात. गणेश
+              पूजनानंतर त्यानंतर चंद्राची पूजा करावी, चंद्रदर्शनानंतर भोजन करून
+              उपवास सोडावा. श्रीगणपती ही विघ्ननाशक देवता असल्याने या व्रताने
+              सर्व विघ्नांचा नाश होतो. मंगळ ग्रहाच्या अनेक नावांपैकी एक नाव
+              अंगारक आहे. संकष्ट चतुर्थी मंगळवारी आली असता, अंगारक योग होतो. या
+              चतुर्थीस अंगारक योग असेही नांव आहे. मंगळाच्या तपश्चर्येने प्रसन्न
+              झालेल्या गणेशाने मंगळास आशीर्वाद दिला त्यामुळे या व्रतास विशेष
+              महत्त्व प्राप्त झाले. दर महिन्याचे संकष्ट चतुर्थीचे व्रत न करणारे
+              देखील अंगारक चतुर्थीचे व्रत आवर्जून करतात. अंगारक चतुर्थीच्या
+              व्रताने संपूर्ण वर्षभरातील चतुर्थी केल्याचे फल मिळते, असे मानले
+              जाते. भारतातील काही प्रमुख गावांच्या संकष्टी चतुर्थीच्या वेळा खाली
+              दिलेल्या आहेत.
+              <br />
+              <br />
+              <div
+                style="margin: auto; width: 90%; height: 400px; padding: 1em"
+              >
+                <iframe
+                  src="https://docs.google.com/spreadsheets/d/e/2PACX-1vS-41ORdxxZIEx4ODrmIGNgq7EzI1Q66INuJ_YgtT_6JR8wktp1JTmk50oSGZGT1y9H_n1cTJXqKJlU/pubhtml?gid=452570802&amp;single=true&amp;widget=true&amp;headers=false"
+                  style="width: 100%; height: 100%"
+                ></iframe>
+              </div>
             </article>
           </section>
-          <section id="collapsible">
-            <article class="marathi">
-              {{#long}}
-              <p>{{{this}}}</p>
-              {{/long}}
-            </article>
-          </section>
-          <button class="expander">See More</button>
         </div>
       </article>
     </section>
-    <script>
+    <script type="text/javascript">
       $(document).ready(function () {
         var oldURL = window.location.href;
+        var domainURL = "https://web.datepanchang.com";
         var params = "";
         if (oldURL.includes("?"))
           params = "?" + oldURL.slice(oldURL.indexOf("?") + 1);
@@ -465,8 +469,7 @@
           if (navigator.share) {
             navigator
               .share({
-                title:
-                  "{{#if englishTitle}}{{englishTitle}}{{else}}{{title}}{{/if}}",
+                title: "जननशांती मुहूर्त",
                 url: window.location.href,
               })
               .then(() => {
@@ -500,5 +503,10 @@
         }
       });
     </script>
+    <script
+      defer=""
+      src="./संकष्ट चतुर्थी_files/beacon.min.js.download"
+      data-cf-beacon='{"rayId":"672cfd6878d02eaa","version":"2021.7.0","r":1,"token":"eebd8bdd709c46ecbdc4cd83b62e0de4","si":10}'
+    ></script>
   </body>
 </html>

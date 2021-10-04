@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="Description"
-      content="Date Panchang, Kosha, {{title}} | {{titleEng}}, {{subtitle}}, Hindu Festival"
+      content="Date Panchang, Kosha, गणेश पूजा विधी | Ganesh Puja Vidhi, Hindu Festival"
     />
-    <title>{{#if englishTitle}}{{englishTitle}}{{else}}{{title}}{{/if}}</title>
+    <title>गणेश पूजा विधी</title>
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Mukta:300,400,500,600,800"
@@ -177,17 +177,21 @@
 
       .formbtn {
         margin: 0.3em;
+        margin-left: 0;
+        margin-right: 1em;
         font-size: clamp(20px, 6vw, 24px);
         font-weight: 500;
         color: #7a5000;
         text-decoration: none;
         /* border: 2px solid rgb(36, 36, 36); */
         border-radius: 12px;
-        background: linear-gradient(to bottom, #dbf8ee 80%, #b2e2d2 100%);
+        background: linear-gradient(to bottom, #f8efdb 80%, #e2ccb2 100%);
         box-shadow: 0 4px 16px 0 #130c09;
         -webkit-box-shadow: 0 4px 8px 0 rgba(153, 167, 171, 1);
         -moz-box-shadow: 0 4px 8px 0 rgba(153, 167, 171, 1);
         padding: 8px;
+        padding-left: 24px;
+        padding-right: 24px;
         transition: 0.2s;
         min-width: 4em;
         text-align: center;
@@ -350,10 +354,14 @@
       </article>
       <article class="paper">
         <header id="seva-header">
-          <img id="seva-image" src="{{image}}" alt="{{titleEng}}" />
+          <img
+            id="seva-image"
+            src="Ganesh Pooja Vidhi.jpg"
+            alt="Ganesh Pooja Vidhi"
+          />
           <div id="seva-title">
             <div id="leading">
-              <div class="title-text marathi">{{title}}</div>
+              <div class="title-text marathi">गणेश पूजा विधी</div>
             </div>
             <div
               style="display: flex; flex-wrap: wrap; justify-content: center"
@@ -371,24 +379,78 @@
               <a id="share" href="#"></a>
             </div>
           </div>
-          <div class="sub-title marathi">{{subtitle}}</div>
         </header>
         <div id="description">
           <section id="short">
             <article class="marathi">
-              {{#short}}
-              <p>{{{this}}}</p>
-              {{/short}}
+              <div>
+                <a
+                  class="formbtn"
+                  id="patrikaa"
+                  href="https://youtu.be/gRUXsWqpN-A"
+                >
+                  मुख्य पूजा
+                </a>
+                <a
+                  class="formbtn"
+                  id="melan"
+                  href="https://youtu.be/mqayjBucMNw"
+                >
+                  उत्तर पूजा
+                </a>
+              </div>
+              <p>
+                *श्रीगणेश चतुर्थी - पूजन साहित्य*
+                <br />
+                <br />
+                श्रीगणेशाच्या पूजनापूर्वी खाली दिलेले सर्व साहित्य हाताशी घेऊन
+                बसावे.
+                <br />
+                <br />
+
+                हळद - कुंकु, अष्टगंध - शेंदूर, उगाळलेले गंध - चंदन, अक्षता<br />
+                कापसाची वस्त्र (कापसाची माळ) शक्यतो २१ मण्यांची<br />
+                पत्री – विविध झाडांची पानं, दूर्वा ( काही जुडी आणि काही सुट्या
+                दूर्वा) - आघाडा - शमी - तुळस<br />
+                हार - फुलं (काही लाल रंगाची फुलं असावीत)<br />
+                विड्याची पाने - १०, सुपारी - ५ <br />
+                खारीक - बदाम - खोबरे - गुळाचा खडा, पंचखाद्य<br />
+                तूप - पंचामृत<br />
+                अत्तर<br />
+                जानवं<br />
+                नारळ - १, इतर फळं ४<br />
+                नैवेद्य (मुख्य नैवेद्य, मोदक, पेढे, इ.)<br />
+                नाणी - ५/६<br />
+                ताम्हन - २, पळी - २, तांब्या १, भांडं १<br />
+                आसन / पाट - २<br />
+                पाणी टाकण्यासाठी पातेलं<br />
+                निर्माल्य टाकण्यासाठी छोटं पातेलं<br />
+
+                <br />
+
+                महाराष्ट्रात घरोघरी गणेश चतुर्थीच्या दिवशी गणेशाची पूजा होते.
+                मात्र यावर्षी कोरोनाच्या संकटामुळे अनेकांना पूजा सांगण्यासाठी
+                गुरुजी उपलब्ध होऊ शकत नाहीत. विघ्नहर्त्या गणेशाचे प्रतिवर्षी
+                प्रमाणे पूजन या ही वर्षी करता यावे याकरिता आम्ही आमच्या
+                <a
+                  href="https://www.youtube.com/channel/UCMFEM4bpAiYDdbSrFKuq6RA"
+                  >YouTube Channel</a
+                >
+                वरून आणि Social Media Handles वरून तसेच आमच्या
+                <a href="dinank.datepanchang.in">Dinank</a> या WebApp वरून गणेश
+                पूजन विधी चा विडिओ शेअर करणार आहोत. ही गणेश पूजा ऐकून आपण घरातील
+                गणेशाचे मनोभावे पूजन करू शकाल.<br />
+                गणेशाचे पूजन हे त्यानंतर दक्षिणा दिल्यावर खऱ्या अर्थाने पूर्ण
+                होते त्यामुळे गणेश चतुर्थीच्या दिवशी पूजन झाल्यावर प्रतिवर्षी
+                प्रमाणे दक्षिणा काढून ठेवावी आणि जे गुरुजी आपल्या घरी दरवर्षी
+                पूजनाला येतात त्यांच्या घरी नेऊन द्यावी अथवा Online Transfer
+                करावी. तसेच आमच्या
+                <a href="dinank.datepanchang.in">Dinank</a> या WebApp वरून देखील
+                आपण Donation / दक्षिणा देऊ शकता. या दक्षिणेचा उपयोग अशाच
+                प्रकारचा Content उपलब्ध करून देण्यासाठी केला जाईल.
+              </p>
             </article>
           </section>
-          <section id="collapsible">
-            <article class="marathi">
-              {{#long}}
-              <p>{{{this}}}</p>
-              {{/long}}
-            </article>
-          </section>
-          <button class="expander">See More</button>
         </div>
       </article>
     </section>
