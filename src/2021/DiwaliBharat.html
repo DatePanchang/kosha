@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>दिवाळी</title>
+    <meta
+      name="description"
+      content="Diwali 2021 Important events"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Mukta:300,400,500,600,800"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+      html {
+        margin: 0;
+        padding: 0;
+        scroll-behavior: smooth;
+      }
+
+      ::-webkit-scrollbar {
+        display: none;
+      }
+
+      body {
+        height: 100vh;
+        width: 100vw;
+        font-family: Mukta, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-image: url("../../gold_bg.png");
+        background-repeat: repeat;
+        overflow: hidden;
+        scroll-behavior: smooth;
+      }
+
+      span {
+        margin: 0.2em;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      table {
+        margin: auto;
+      }
+
+      td {
+        padding: 0.3em 1em 0.3em 1em;
+      }
+
+      #toolbar {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 56px;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 1) 0%,
+          rgba(255, 255, 255, 1) 35%,
+          rgba(242, 242, 242, 1) 89%,
+          rgba(246, 246, 246, 1) 100%
+        );
+        box-shadow: 0 4px 8px 0 rgba(185, 189, 190, 1);
+        -webkit-box-shadow: 0 4px 8px 0 rgba(185, 189, 190, 1);
+        -moz-box-shadow: 0 4px 8px 0 rgba(185, 189, 190, 1);
+        position: sticky;
+        border-radius: 0 0 24px 24px;
+        max-width: 920px;
+        margin: auto;
+      }
+
+      #toolbar #home {
+        margin: 5px;
+        margin-left: 10px;
+        background: url(../../home.svg);
+        background-size: cover;
+        height: 36px;
+        width: 36px;
+        color: black;
+      }
+
+      #toolbar #home:hover {
+        transform: scale(1.1);
+      }
+
+      #toolbar #textlogo {
+        max-width: 100%;
+        max-height: 100%;
+      }
+
+      #toolbar #lang {
+        margin: 5px;
+        margin-right: 10px;
+        background: url(../../language_toggle_marathi.png);
+        background-size: cover;
+        height: 48px;
+        width: 48px;
+        color: black;
+        transition: 0.3s ease-in-out;
+      }
+
+      #toolbar #lang.showEnglish {
+        transform: rotate(360deg);
+        background: url(../../language_toggle_english.png);
+      }
+
+      #content {
+        height: 90%;
+        max-width: 912px;
+        margin: auto;
+        padding: 1em;
+        overflow-y: auto;
+      }
+
+      .paper {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 1) 0%,
+          rgba(255, 255, 255, 1) 35%,
+          rgba(242, 242, 242, 1) 89%,
+          rgba(246, 246, 246, 1) 100%
+        );
+        box-shadow: 0 4px 16px 0 rgba(153, 167, 171, 1);
+        -webkit-box-shadow: 0 4px 16px 0 rgba(153, 167, 171, 1);
+        -moz-box-shadow: 0 4px 16px 0 rgba(153, 167, 171, 1);
+        border-radius: 24px;
+        margin-bottom: 1.3em;
+        scroll-behavior: smooth;
+      }
+
+      #banner {
+        margin-bottom: 1em;
+        border-radius: 12px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+
+      #seva-header {
+        /* margin-top: 0.6em; */
+        margin-bottom: 0.2em;
+        display: flex;
+        flex-direction: column;
+        /* height: 40%; */
+        scroll-behavior: smooth;
+      }
+
+      #seva-header #seva-image {
+        box-shadow: 0 2px 6px 0 rgba(153, 167, 171, 1);
+        -webkit-box-shadow: 0 2px 6px 0 rgba(153, 167, 171, 1);
+        -moz-box-shadow: 0 2px 6px 0 rgba(153, 167, 171, 1);
+        border-radius: 24px;
+        aspect-ratio: 2/1;
+        width: 100%;
+      }
+
+      #seva-header #seva-image img {
+        height: 200px;
+        width: 100%;
+        background-position: center;
+        background-size: cover;
+        border-radius: 21px 21px 0 0;
+      }
+
+      #seva-header #seva-title {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      #seva-title #leading {
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-left: 1.2em;
+        margin-top: 0.5em;
+      }
+
+      #leading .title-text {
+        margin-right: 0.1em;
+        margin-bottom: 0;
+        font-size: 42px;
+        font-weight: 600;
+        color: rgb(130, 57, 0);
+      }
+
+      .formbtn {
+        margin: 0.3em;
+        font-size: clamp(20px, 6vw, 24px);
+        font-weight: 500;
+        color: #7a5000;
+        text-decoration: none;
+        /* border: 2px solid rgb(36, 36, 36); */
+        border-radius: 12px;
+        background: linear-gradient(to bottom, #dbf8ee 80%, #b2e2d2 100%);
+        box-shadow: 0 4px 16px 0 #130c09;
+        -webkit-box-shadow: 0 4px 8px 0 rgba(153, 167, 171, 1);
+        -moz-box-shadow: 0 4px 8px 0 rgba(153, 167, 171, 1);
+        padding: 8px;
+        transition: 0.2s;
+        min-width: 4em;
+        text-align: center;
+      }
+
+      .formbtn:hover {
+        transform: translateY(-2px) scale(1.05);
+      }
+
+      .viewbtn {
+        font-size: clamp(18px, 4vw, 20px);
+        font-weight: 500;
+        color: #7a5000;
+        text-decoration: none;
+        /* border: 2px solid rgb(36, 36, 36); */
+        border-radius: 12px;
+        background: linear-gradient(to bottom, #dbf8ee 80%, #b2e2d2 100%);
+        box-shadow: 0 4px 16px 0 #130c09;
+        -webkit-box-shadow: 0 4px 8px 0 rgba(153, 167, 171, 1);
+        -moz-box-shadow: 0 4px 8px 0 rgba(153, 167, 171, 1);
+        padding: 8px;
+        transition: 0.2s;
+        min-width: 3em;
+        text-align: center;
+        cursor: pointer;
+      }
+
+      .viewbtn:hover {
+        transform: translateY(-2px) scale(1.05);
+      }
+
+      #seva-title #share {
+        margin: 18px 18px 0 24px;
+        background: url(../../share.svg);
+        background-size: cover;
+        height: 36px;
+        width: 36px;
+        color: black;
+      }
+
+      #seva-title #share:hover {
+        transform: translateY(-2px) scale(1.05);
+        transition: 0.2s;
+      }
+
+      #seva-header .sub-title {
+        margin-left: 0.9em;
+        margin-right: 0.9em;
+        font-size: 24px;
+        font-weight: 500;
+        color: rgb(130, 57, 0);
+      }
+
+      #description {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0.5em 1.2em 0 1em;
+        font-size: 21px;
+        font-weight: 500;
+        color: rgba(125, 75, 0, 0.79);
+        scroll-behavior: smooth;
+      }
+
+      #description #collapsible {
+        display: none;
+      }
+
+      .expander {
+        padding: 0.75em 2em 0.75em 2em;
+        margin: auto;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        border: none;
+        background: linear-gradient(to bottom, #914304 80%, #8a4208 100%);
+        color: white;
+        box-shadow: 0 2px 8px 0 rgba(153, 167, 171, 1);
+        -webkit-box-shadow: 0 2px 8px 0 rgba(153, 167, 171, 1);
+        -moz-box-shadow: 0 2px 8px 0 rgba(153, 167, 171, 1);
+        border-radius: 24px;
+        transition-duration: 0.2s;
+        transform: scale(1);
+      }
+
+      .expander:hover {
+        transform: scale(1.1);
+      }
+
+      .expander:active {
+        transform: scale(1);
+      }
+
+      .english {
+        display: none;
+      }
+
+      .cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 0.5em;
+        margin-bottom: 1em;
+      }
+
+      .small-card {
+        flex-grow: unset;
+        border: 1px solid #6e3607;
+        border-radius: 12px;
+        padding: 0.3em 1em 0.3em 1em;
+        margin: 0.7em;
+        margin-top: 0.2em;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .card-title {
+        flex-grow: 1;
+        text-align: center;
+        font-size: 24px;
+        font-weight: 500;
+        color: rgb(130, 57, 0);
+      }
+
+      .san {
+        scroll-behavior: smooth;
+      }
+
+      .san-header {
+        display: flex;
+      }
+
+      .san-bar {
+        border-bottom: 1px solid #6b43069f;
+        flex-grow: 1;
+        height: 42px;
+      }
+
+      .san-title {
+        text-align: center;
+        font-size: 28px;
+        font-weight: 500;
+        color: rgb(110, 48, 0);
+        margin-right: -50px;
+        margin-left: -50px;
+        /* width: min-content; */
+      }
+
+      .kaalaavadhi {
+        /* display: flex;
+        flex-wrap: wrap;
+        justify-content: center; */
+        flex-grow: 1;
+        text-align: center;
+      }
+
+      .spacer {
+        margin-top: 24px;
+      }
+
+      @media only screen and (max-width: 768px) {
+        html {
+          scroll-behavior: smooth;
+        }
+        #seva-title #leading {
+          display: block;
+          /* margin: 0 0 1em 1em; */
+        }
+
+        .formbtn {
+          margin: 0.3em;
+        }
+
+        .paper {
+          margin-bottom: 4.3em;
+          scroll-behavior: smooth;
+        }
+
+        .small-card {
+          flex-grow: 1;
+          border: unset;
+          border-bottom: 1px solid #6e3607;
+          border-radius: unset;
+          flex-direction: row;
+          padding-left: 0;
+          padding-right: 0;
+        }
+
+        .san {
+          scroll-behavior: smooth;
+        }
+
+        .san-title {
+          margin-right: -20px;
+          margin-left: -20px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <section id="toolbar">
+      <a id="home" href="https://web.datepanchang.com/"></a>
+      <img
+        id="textlogo"
+        src="../../textlogo.svg"
+        alt="Date Panchang official text logo"
+      />
+      <a
+        href="https://web.datepanchang.com/promos/san/Sankashta%20Chaturthi/index.html"
+        style="visibility: hidden; width: 56px"
+        >asd</a
+      >
+    </section>
+    <section id="content">
+      <article class="paper" id="banner">
+        <a
+          class="formbtn"
+          id="patrikaa"
+          href="https://web.datepanchang.com/#/Seva/Patrikaa"
+        >
+          पत्रिका
+        </a>
+        <a
+          class="formbtn"
+          id="melan"
+          href="https://web.datepanchang.com/#/Seva/Melan"
+        >
+          कुंडली मेलन
+        </a>
+        <a class="formbtn" id="muhurta" href="https://web.datepanchang.com/">
+          मुहूर्त
+        </a>
+      </article>
+      <article class="paper">
+        <header id="seva-header">
+          <img
+            id="seva-image"
+            src="Diwali.jpg"
+            alt="Diwali 2021"
+          />
+          <div id="seva-title">
+            <div id="leading">
+              <div class="title-text marathi">दिवाळी</div>
+            </div>
+            <a
+              id="share"
+              href="https://web.datepanchang.com/promos/san/Sankashta%20Chaturthi/index.html"
+            ></a>
+          </div>
+          <div class="sub-title marathi">
+            वसुबारस ते भाऊबीज दरम्यान येणाऱ्या दिवाळीमधील सर्व प्रमुख दिवसांची माहिती
+          </div>
+        </header>
+        <div id="description">
+          <section id="short">
+            <article class="marathi">
+              <div style="margin-top: 0">
+                वर्षभरातील सर्व सणांमध्ये दीपावली हा सण सर्वात मोठा आनंददायी असा
+                आहे. इतर सर्व सण - उत्सवांपेक्षा दिवाळीच्या चार दिवसात होणारी
+                उलाढाल सर्वांनाच आनंद देणारी असते. याचे कारण नरक चतुर्दशी ते
+                कार्तिक शु. प्रतिपदा या तीन दिवसांत जनतेने मौज मजा करावी, गोडधोड
+                खावे, आनंदी वातावरणात रहावे अशी बळीराजाची इच्छा आणि त्याला
+                मिळालेला वर यामुळे दिवाळीला विशेष महत्त्व प्राप्त झालेले आहे.
+                <br />
+                <table>
+                  <tbody>
+                    <tr class="row">
+                      <th>वसुबारस</th>
+                      <td>1 नोव्हेंबर (सोमवार)</td>
+                      <td>
+                        <a href="#vasubaaras">
+                          <div class="viewbtn">View</div>
+                        </a>
+                      </td>
+                    </tr>
+                    <tr class="row">
+                      <th>धनत्रयोदशी</th>
+                      <td>2 नोव्हेंबर (मंगळवार)</td>
+                      <td>
+                        <a href="#dhanatrayodashi">
+                          <div class="viewbtn">View</div>
+                        </a>
+                      </td>
+                    </tr>
+                    <tr class="row">
+                      <th>
+                        नरक चतुर्दशी <br />
+                        लक्ष्मीपूजन
+                      </th>
+                      <td>4 नोव्हेंबर (गुरुवार)</td>
+                      <td>
+                        <a href="#narak">
+                          <div class="viewbtn">View</div>
+                        </a>
+                      </td>
+                    </tr>
+                    <tr class="row">
+                      <th>दिवाळी पाडवा</th>
+                      <td>5 नोव्हेंबर (शुक्रवार)</td>
+                      <td>
+                        <a href="#balipratiprada">
+                          <div class="viewbtn">View</div>
+                        </a>
+                      </td>
+                    </tr>
+                    <tr class="row">
+                      <th>भाऊबीज</th>
+                      <td>6 नोव्हेंबर (शनिवार)</td>
+                      <td>
+                        <a href="#bhaubeej">
+                          <div class="viewbtn">View</div>
+                        </a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="spacer"></div>
+              <div class="san">
+                <div id="vasubaaras">
+                  <div class="san-header">
+                    <span class="san-bar"> </span>
+                    <span class="san-title" style="flex-grow: 1">
+                      वसुबारस <br />
+                      (1 नोव्हेंबर 2021, सोमवार)
+                    </span>
+                    <span class="san-bar"> </span>
+                  </div>
+                  <p style="text-align: center">
+                    या दिवशी सौभाग्यव्रती स्त्रीया एकभुक्त राहून (एकवेळ जेवण
+                    करून) सायंकाळी सवत्स म्हणजे वासरासह असलेल्या गाईचे खालील
+                    श्लोक म्हणून सूर्यास्तानंतर पूजन करतात.<br />
+                    ततः सर्वमये देवि सर्व देवैरलंकृते। <br />मातर्ममाभिलषितं
+                    सफलं कुरू नन्दिनी।। <br />
+                    अर्थ &nbsp; -- &nbsp; हे सर्वात्मक व सर्व देवांनी अलंकृत
+                    अशा नंदिनी माते, तू माझे मनोरथ सफल कर. या दिवशी दूध, दूधाचे
+                    पदार्थ, तळलेले पदार्थ खात नाहीत. आज शहरात अनेक ठिकाणी
+                    पूजनासाठी गाई उपलब्ध नसतात अशावेळेस गाय वासराच्या मूर्तिची
+                    देखील पूजा करता येते. ते ही शक्य नसल्यास गाईच्या चित्राची
+                    पूजा करता येते. मात्र अशा वेळेस गाईच्या भोजनाकरिता (गोग्रासाकरिता) 
+                    आपल्या भागातील गोशाळेस शक्य ते सहकार्य करावे.
+                  </p>
+              <div class="san">
+                <div id="dhanatrayodashi">
+                  <div class="san-header">
+                    <span class="san-bar"> </span>
+                    <span class="san-title" style="flex-grow: 1">
+                      धनत्रयोदशी, यमदीपदान <br />
+                      (2 नोव्हेंबर 2021, मंगळवार)
+                    </span>
+                    <span class="san-bar"> </span>
+                  </div>
+                  <p style="text-align: center">
+                    आश्विन कृष्ण त्रयोदशी म्हणजेच धनत्रयोदशी, यमराजाला प्रसन्न
+                    करण्याकरिता या दिवशी यमदीपदान केले जाते. घरातील अलंकार, सोने
+                    - नाणे स्वच्छ केले जाते. विष्णू, लक्ष्मी, कुबेर, योगिनी,
+                    गणेश, नाग, द्रव्यनिधी यांची पूजा केली जाते. अपमृत्यु म्हणजेच
+                    अकाली, अपघाताने मृत्यु येऊ नये याकरिता सायंकाळी कणकेचा दिवा
+                    दक्षिणेस ज्योत करून ठेवावा व घरातील प्रत्येकाने खालील श्लोक म्हणून दिव्यास
+                    नमस्कार करावा.<br />
+                    मृत्यूना पाशदंडाभ्यां कालेन श्यामयासह। <br />त्रयोदश्यां
+                    दीपदानात् सूर्यजः प्रीयतां मम।। <br />
+                  </p>
+              <div class="san">
+                <div id="narak">
+                  <div class="san-header">
+                    <span class="san-bar"> </span>
+                    <span class="san-title" style="flex-grow: 1">
+                      नरक चतुर्दशी <br />
+                      (4 नोव्हेंबर 2021, गुरुवार)
+                    </span>
+                    <span class="san-bar"> </span>
+                  </div>
+                  <p style="text-align: center">
+                    नरकासुराने 16 हजार 108 स्त्रियांना आपल्या बंदीखान्यात डांबून
+                    ठेवले होते. हा नरकासूर प्रजेचाही खूप छळ करीत असे. भगवान
+                    श्रीकृष्णांनी या नरकासुराचा वध आश्विन कृष्ण चतुर्दशीला करून
+                    स्त्रीयांची मुक्तता केली. नरकासुराने श्रीकृष्णाकडे वर
+                    मागितला की, आजच्या तिथीला जो मंगलस्नान करेल त्याला नरकाची
+                    पीडा होऊ नये. म्हणून नरक चतुर्दशीला पहाटे अभ्यंगस्नान करणे
+                    महत्त्वाचे मानले आहे. शरद् ऋतूचा शेवट आणि हेमंत ऋतूचे आगमन
+                    अशा संधीकालावर दिवाळीचा सण साजरा करताना पुढे येणाऱ्या
+                    थंडीच्या काळासाठी तेल लावून स्नान करण्याची सुरुवात नरक
+                    चतुर्दशीच्या अभ्यंगस्नानापासून होते. नरक चतुर्दशीचे दिवशी
+                    यमतर्पण करावयास सांगितले आहे. पूर्वीपेक्षा सध्याच्या काळात
+                    वेगाने चालविल्या जाणाऱ्या वाहनांमुळे अपघाताचे भय वाढले आहे.
+                    अपघात, धावपळीचे जीवन, इ. अनेक कारणांमुळे अपमृत्यूचा संभव
+                    वाढत असल्याने नरकचतुर्दशीला यमतर्पण करून अपमृत्यु
+                    निवारणासाठी यमाची प्रार्थना सर्वांनी करणे आवश्यक आहे.
+                    अपमृत्यु येऊ नये म्हणून यमाला खालील 14 नावांनी तर्पण करून
+                    त्याची प्रार्थना करण्यास सांगितले आहे. वडील हयात असलेल्यांनी
+                    पाण्यात अक्षता घालून व नसलेल्यांनी पाण्यात तीळ घालून खालील
+                    नावांनी तर्पण करावे. 1) यम 2) धर्मराज 3) मृत्यु 4) अंतक 5)
+                    वैवस्वत 6) काल 7) सर्वभूतक्षयकर 8) औदुंबर 9) दध्न 10) नील
+                    11) परमेष्ठिन 12) वृकोदर 13) चित्र 14) चित्रगुप्त
+                  </p>
+              <div class="san">
+                <div id="laxmikuberpujan">
+                  <div class="san-header">
+                    <span class="san-bar"> </span>
+                    <span class="san-title" style="flex-grow: 1">
+                      लक्ष्मीकुबेर पूजन <br />
+                      (4 नोव्हेंबर 2021, गुरुवार)
+                    </span>
+                    <span class="san-bar"> </span>
+                  </div>
+                  <p style="text-align: center">
+                    शेतकऱ्यांसाठी ज्याप्रमाणे मार्गशीर्षातील वेळा अमावास्या शुभ
+                    आहे, त्याप्रमाणे व्यापारी वर्गासाठी आश्विनातील अमावास्या शुभ
+                    आहे. पुराणातील कथेप्रमाणे आश्विन अमावास्येस रात्री लक्ष्मी
+                    सर्वत्र संचार करीत असते. जेथे स्वच्छता, शोभा, आनंद आहे अशा
+                    ठिकाणी ती आकर्षित होते. म्हणून लक्ष्मीपूजनाचे दिवशी घर,
+                    दुकान झाडून, स्वच्छ करून, सुशोभित करून सूर्यास्तानंतर
+                    लक्ष्मी व कुबेर यांचे पूजन करून ऐश्वर्य, संपत्ति,
+                    समृद्धिसाठी प्रार्थना करावयाची असते.<br />
+                    नमस्ते सर्वदेवानां वरदासि हरिप्रिये । <br />
+                    या गतिस्त्वत्प्रपन्नानां सा मे भूया तव दर्शनात् ।। <br />
+                    अशी लक्ष्मीची प्रार्थना करावी आणि <br /> धनदाय नमस्तुभ्यं
+                    निधिपद्माधिपायच | <br />
+                    भवन्तु त्वत्प्रसादेन धनधान्यादिसम्पदः ।। <br />
+                    अशी कुबेराची प्रार्थना करावी. यापूजेत समृद्धीचे प्रतीक
+                    म्हणून साळीच्या लाह्या आवश्यक असतात.
+                  </p>
+                  <div class="cards">
+                    <div class="small-card">
+                      <div class="card-title">लक्ष्मीपूजन मुहूर्त</div>
+                      <div class="kaalaavadhi">
+                        <div>
+                          <span>दुपारी 12:25</span>
+                          <span>ते</span>
+                          <span>दुपारी 3:15</span>
+                        </div>
+                        <div>
+                          <span>दुपारी 4:40</span>
+                          <span>ते</span>
+                          <span>रात्री 10:15</span>
+                        </div>
+                        <div>
+                          <span>रात्री 12:15</span>
+                          <span>ते</span>
+                          <span>रात्री 1:50</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="san">
+                <div id="balipratiprada">
+                  <div class="san-header">
+                    <span class="san-bar"> </span>
+                    <span class="san-title" style="flex-grow: 1">
+                      दिवाळी पाडवा (बलिप्रतिपदा) <br />
+                      (5 नोव्हेंबर 2021, शुक्रवार)
+                    </span>
+                    <span class="san-bar"> </span>
+                  </div>
+                  <p style="text-align: center">
+                    कार्तिक शुक्ल प्रतिपदेला बलिप्रतिपदा असे म्हणतात. या दिवशी
+                    दानशूर अशा बळीराजाची पूजा करण्यास सांगितली आहे. ज्याप्रमाणे
+                    चैत्र शुक्ल प्रतिपदेस शालिवाहन शक नवे संवत्सर सुरु होते,
+                    त्याप्रमाणे कार्तिक शुक्ल प्रतिपदेस विक्रम संवत्सर सुरु
+                    होते. व्यापारी वर्षास सुरुवात होत असल्याने वहीपूजन, दुकानाची
+                    पूजा करून नवीन वर्षाचे स्वागत केले जाते. या दिवशी पत्नीने
+                    पतीस ओवाळावे म्हणजे दोघांचे ही आयुष्य वाढते.
+                  </p>
+                  <div class="cards">
+                    <div class="small-card">
+                      <div class="card-title">दिवाळी पाडवा / वहीपूजन</div>
+                      <div class="kaalaavadhi">
+                        <div>
+                          <span>पहाटे 3:50</span>
+                          <span>ते</span>
+                          <span>सकाळी 6:40</span>
+                        </div>
+                        <div>
+                          <span>सकाळी 8:05</span>
+                          <span>ते</span>
+                          <span>सकाळी 10:55</span>
+                        </div>
+                        <div>
+                          <span>दुपारी 12:20</span>
+                          <span>ते</span>
+                          <span>दुपारी 1:45</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="san">
+                <div id="bhaubeej">
+                  <div class="san-header">
+                    <span class="san-bar"> </span>
+                    <span class="san-title" style="flex-grow: 1">
+                      भाऊबीज (यमद्वितीया) <br />
+                      (6 नोव्हेंबर 2021, शनिवार)
+                    </span>
+                    <span class="san-bar"> </span>
+                  </div>
+                  <p style="text-align: center">
+                    नरक चतुर्दशी, अमावास्या व बलिप्रतिपदा हे दिवाळीचे मुख्य तीन
+                    दिवस आहेत. मात्र या तीन दिवसांना जोडून येणारी भाऊबीज सुद्धा
+                    दिवाळीच्या दिवसात गणली जाते. कार्तिक शुक्ल द्वितीयेच्या
+                    दिवशी यमराज आपल्या बहिणीच्या हातचे भोजन करून बहिणीचा सत्कार
+                    करीत असे, अशी पुराणात गोष्ट आहे. म्हणून या दिवशी बहिणीने
+                    भावाला जेवावयास बोलावून त्याला ओवाळावे असे सांगितले आहे.
+                  </p>
+              <p style="text-align: justify;">
+                दिवाळीच्या या चार दिवसात सर्वत्र आनंदोत्सव साजरा करावयाचा
+                असल्याने दीपमाळ, आकाशदिवे, दिव्यांची रोषणाई करून दीपोत्सव केला
+                जातो. म्हणून या चार दिवसांना दीपावली किंवा दिवाळी असे म्हटले
+                जाते. वर्षभरातील इतर सण - उत्सव यांचे प्रमाणे दिवाळीचे स्वरूप
+                नसते. सर्व समाजाने दुःख, भेदभाव विसरून चार दिवस आनंदात रहावयाचे
+                असते. काश्मीर पासून कन्याकुमारी पर्यंत संपूर्ण भारतात दिवाळी
+                साजरी करण्याची पद्धति जवळजवळ सारखीच आहे. मुख्यत: घर, दुकान
+                स्वच्छ करून, दिव्यांची रोषणाई, फराळाचे पदार्थ, गोडधोड पक्वान्न
+                करणे, अभ्यंगस्नान, दिवाळीच्या निमित्ताने आप्तेष्टांनी एकत्र येणे
+                इ. गोष्टी केल्या जातात पतीने पत्नीसाठी, भावाने बहिणीसाठी,
+                मालकांनी कर्मचाऱ्यांसाठी भेटवस्तू देणे आणि स्नेहभाव दृढ करणे
+                यामुळे संपूर्ण समाजात - कुटुंबात एकोपा राखला जातो. प्रत्येक
+                धर्मीयांच्या सण - उत्सवामुळे संपूर्ण भारतात खरेदी - विक्री होऊन
+                आर्थिक उलाढाल वाढते अर्थातच त्यामुळे आर्थिक स्वास्थ्य प्राप्त
+                होऊन भारताची प्रगति होण्यात या सण - उत्सवांचे मोठे सहकार्य लाभते
+                ही गोष्ट निश्चितच लक्षात ठेवली पाहिजे.
+              </p>
+            </article>
+          </section>
+        </div>
+      </article>
+    </section>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        var oldURL = window.location.href;
+        var domainURL = "https://web.datepanchang.com";
+        var params = "";
+        if (oldURL.includes("?"))
+          params = "?" + oldURL.slice(oldURL.indexOf("?") + 1);
+
+        $("#patrikaa").attr("href", $("#patrikaa").attr("href") + params);
+        $("#melan").attr("href", $("#melan").attr("href") + params);
+        $("#muhurta").attr("href", $("#muhurta").attr("href") + params);
+
+        if ($("#lang").hasClass("showEnglish")) {
+          console.log("inside showeng");
+          if (
+            $("#collapsible .english").text().length == 0 ||
+            $("#collapsible .english").text() == "null"
+          ) {
+            console.log($("#collapsible .english").text());
+            $("#collapsible").css("display", "none");
+            $(".expander").css("display", "none");
+          } else {
+            $(".expander").css("display", "block");
+          }
+        } else {
+          console.log("inside showmar");
+          if (
+            $("#collapsible .marathi").text().length == 0 ||
+            $("#collapsible .marathi").text() == "null"
+          ) {
+            console.log($("#collapsible .marathi").text());
+            $("#collapsible").css("display", "none");
+            $(".expander").css("display", "none");
+          } else {
+            $(".expander").css("display", "block");
+          }
+        }
+
+        $("#lang").click(function () {
+          $(this).toggleClass("showEnglish");
+          $(".marathi").toggle("fast");
+          $(".english").toggle("fast");
+
+          if ($("#lang").hasClass("showEnglish")) {
+            console.log("inside showeng");
+            if (
+              $("#collapsible .english").text().length == 0 ||
+              $("#collapsible .english").text() == "null"
+            ) {
+              console.log($("#collapsible .english").text());
+              $("#collapsible").css("display", "none");
+              $(".expander").css("display", "none");
+            } else {
+              $(".expander").css("display", "block");
+            }
+          } else {
+            console.log("inside showmar");
+            if (
+              $("#collapsible .marathi").text().length == 0 ||
+              $("#collapsible .marathi").text() == "null"
+            ) {
+              console.log($("#collapsible .marathi").text());
+              $("#collapsible").css("display", "none");
+              $(".expander").css("display", "none");
+            } else {
+              $(".expander").css("display", "block");
+            }
+          }
+        });
+
+        $("#share").click(function () {
+          if (navigator.share) {
+            navigator
+              .share({
+                title: "जननशांती मुहूर्त",
+                url: window.location.href,
+              })
+              .then(() => {
+                console.log("Thanks for sharing!");
+              })
+              .catch(() => {
+                var inputc = document.body.appendChild(
+                  document.createElement("input")
+                );
+                inputc.value = window.location.href;
+                inputc.focus();
+                inputc.select();
+                document.execCommand("copy");
+                inputc.parentNode.removeChild(inputc);
+                alert("Cannot Open Share Window! \n URL copied to Clipboard!");
+              });
+          }
+        });
+        if ($("#collapsible .marathi").text().length > 0) {
+          if ($(".expander").hasClass("active")) {
+            $(".expander").text("See Less");
+          } else $(".expander").text("See More");
+
+          $(".expander").click(function () {
+            $("#collapsible").slideToggle();
+            if ($(this).hasClass("active")) $(this).text("See More");
+            else $(this).text("See Less");
+
+            $(this).toggleClass("active");
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
