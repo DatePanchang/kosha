@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>14 11 2021 Ravi Udaya</name>
+    <LookAt>
+      <longitude>80</longitude>
+      <latitude>23</latitude>
+      <altitude>4828032</altitude>
+      <altitudeMode>relativeToGround</altitudeMode>
+    </LookAt>
+    <Placemark>
+      <MultiGeometry>
+        <LineString>
+          <coordinates>70.6411357216315,8
+72.0048868342406,12
+73.4130028737467,16
+74.8830993893711,20
+76.4358214493176,24
+78.0961821304578,28
+79.8954575998604,32</coordinates>
+        </LineString>
+      </MultiGeometry>
+      <Style>
+        <LineStyle>
+          <color>ff000000</color>
+          <width>2</width>
+        </LineStyle>
+      </Style>
+    </Placemark>
+  </Document>
+</kml>
