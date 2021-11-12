@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="Description"
+      content="Date Panchang, Kosha, गणेश पूजा विधी | Ganesh Puja Vidhi, Hindu Festival"
+    />
+    <title>गणेश पूजा विधी</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Mukta:300,400,500,600,800"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+      html {
+        margin: 0;
+        padding: 0;
+        scroll-behavior: smooth;
+      }
+
+      ::-webkit-scrollbar {
+        display: none;
+      }
+
+      body {
+        height: 100vh;
+        width: 100vw;
+        font-family: Mukta, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-image: url("/promos/images/gold_bg.png");
+        background-repeat: repeat;
+        overflow: hidden;
+      }
+
+      #toolbar {
+        width: 100%;
+        max-width: 912px;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        height: 56px;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 1) 0%,
+          rgba(255, 255, 255, 1) 35%,
+          rgba(242, 242, 242, 1) 89%,
+          rgba(246, 246, 246, 1) 100%
+        );
+        box-shadow: 0 4px 8px 0 rgba(185, 189, 190, 1);
+        -webkit-box-shadow: 0 4px 8px 0 rgba(185, 189, 190, 1);
+        -moz-box-shadow: 0 4px 8px 0 rgba(185, 189, 190, 1);
+        position: sticky;
+        border-bottom-right-radius: 24px;
+        border-bottom-left-radius: 24px;
+      }
+
+      #toolbar #home {
+        margin: 5px;
+        margin-top: 7px;
+        margin-left: 10px;
+        background: url(/promos/images/home.svg);
+        background-size: cover;
+        height: 36px;
+        width: 36px;
+        color: black;
+      }
+
+      #toolbar #home:hover {
+        transform: scale(1.1);
+      }
+
+      #toolbar #textlogo {
+        max-width: 100%;
+        max-height: 100%;
+      }
+
+      #toolbar #lang {
+        visibility: hidden;
+        margin: 5px;
+        margin-right: 10px;
+        background: url(/promos/images/language_toggle_marathi.png);
+        background-size: cover;
+        height: 48px;
+        width: 48px;
+        color: black;
+        transition: 0.3s ease-in-out;
+      }
+
+      #toolbar #lang.showEnglish {
+        transform: rotate(360deg);
+        background: url(/promos/images/language_toggle_english.png);
+      }
+
+      #content {
+        height: 90%;
+        max-width: 912px;
+        margin: auto;
+        padding: 1em;
+        overflow-y: auto;
+      }
+
+      .paper {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 1) 0%,
+          rgba(255, 255, 255, 1) 35%,
+          rgba(242, 242, 242, 1) 89%,
+          rgba(246, 246, 246, 1) 100%
+        );
+        box-shadow: 0 4px 16px 0 rgba(153, 167, 171, 1);
+        -webkit-box-shadow: 0 4px 16px 0 rgba(153, 167, 171, 1);
+        -moz-box-shadow: 0 4px 16px 0 rgba(153, 167, 171, 1);
+        border-radius: 24px;
+        margin-bottom: 1.3em;
+      }
+
+      #banner {
+        margin-bottom: 1em;
+        border-radius: 12px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+
+      #seva-header {
+        /* margin-top: 0.6em; */
+        margin-bottom: 0.2em;
+        display: flex;
+        flex-direction: column;
+        /* height: 40%; */
+      }
+
+      #seva-header #seva-image {
+        box-shadow: 0 2px 6px 0 rgba(153, 167, 171, 1);
+        -webkit-box-shadow: 0 2px 6px 0 rgba(153, 167, 171, 1);
+        -moz-box-shadow: 0 2px 6px 0 rgba(153, 167, 171, 1);
+        border-radius: 24px;
+        aspect-ratio: 2/1;
+        width: 100%;
+      }
+
+      #seva-header #seva-image img {
+        height: 200px;
+        width: 100%;
+        background-position: center;
+        background-size: cover;
+        border-radius: 21px 21px 0 0;
+      }
+
+      #seva-header #seva-title {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      #seva-title #leading {
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-left: 1.2em;
+        margin-top: 0.5em;
+      }
+
+      #leading .title-text {
+        margin-right: 0.1em;
+        margin-bottom: 0;
+        font-size: 42px;
+        font-weight: 600;
+        color: rgb(130, 57, 0);
+      }
+
+      .formbtn {
+        margin: 0.3em;
+        margin-left: 0;
+        margin-right: 1em;
+        font-size: clamp(20px, 6vw, 24px);
+        font-weight: 500;
+        color: #7a5000;
+        text-decoration: none;
+        /* border: 2px solid rgb(36, 36, 36); */
+        border-radius: 12px;
+        background: linear-gradient(to bottom, #f8efdb 80%, #e2ccb2 100%);
+        box-shadow: 0 4px 16px 0 #130c09;
+        -webkit-box-shadow: 0 4px 8px 0 rgba(153, 167, 171, 1);
+        -moz-box-shadow: 0 4px 8px 0 rgba(153, 167, 171, 1);
+        padding: 8px;
+        padding-left: 24px;
+        padding-right: 24px;
+        transition: 0.2s;
+        min-width: 4em;
+        text-align: center;
+      }
+
+      .formbtn:hover {
+        transform: translateY(-2px) scale(1.05);
+      }
+
+      #seva-title #share {
+        margin: 18px 18px 0 24px;
+        background: url(/promos/images/share.svg);
+        background-size: cover;
+        height: 36px;
+        width: 36px;
+        color: black;
+      }
+
+      #seva-title #share:hover {
+        transform: translateY(-2px) scale(1.05);
+        transition: 0.2s;
+      }
+
+      #seva-header .sub-title {
+        margin-left: 0.9em;
+        margin-right: 0.9em;
+        font-size: 24px;
+        font-weight: 500;
+        color: rgb(130, 57, 0);
+      }
+
+      #description {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0.5em 1.2em 0 1em;
+        font-size: 21px;
+        font-weight: 500;
+        color: rgba(125, 75, 0, 0.79);
+      }
+
+      #description #collapsible {
+        display: none;
+      }
+
+      #short {
+        margin-bottom: 12px;
+      }
+
+      .expander {
+        padding: 0.75em 2em 0.75em 2em;
+        margin: auto;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        border: none;
+        background: linear-gradient(to bottom, #914304 80%, #8a4208 100%);
+        color: white;
+        box-shadow: 0 2px 8px 0 rgba(153, 167, 171, 1);
+        -webkit-box-shadow: 0 2px 8px 0 rgba(153, 167, 171, 1);
+        -moz-box-shadow: 0 2px 8px 0 rgba(153, 167, 171, 1);
+        border-radius: 24px;
+        transition-duration: 0.2s;
+        transform: scale(1);
+      }
+
+      .expander:hover {
+        transform: scale(1.1);
+      }
+
+      .expander:active {
+        transform: scale(1);
+      }
+
+      .english {
+        display: none;
+      }
+
+      .cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 0.5em;
+        margin-bottom: 1em;
+      }
+      .small-card {
+        flex-grow: unset;
+        border: 1px solid #6e3607;
+        border-radius: 12px;
+        padding: 0.3em 1em 0.3em 1em;
+        margin: 0.7em;
+        margin-top: 0.2em;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      span {
+        margin: 0.2em;
+      }
+
+      @media only screen and (max-width: 768px) {
+        #seva-title #leading {
+          display: block;
+          /* margin: 0 0 1em 1em; */
+        }
+
+        .formbtn {
+          margin: 0.3em;
+        }
+
+        .paper {
+          margin-bottom: 4.3em;
+        }
+
+        .small-card {
+          flex-grow: 1;
+          border: unset;
+          border-bottom: 1px solid #6e3607;
+          border-radius: unset;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="fb-root"></div>
+    <script
+      async
+      defer
+      crossorigin="anonymous"
+      src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v11.0&appId=2562498197338206&autoLogAppEvents=1"
+      nonce="LZt1s27d"
+    ></script>
+    <section id="toolbar">
+      <a id="home" href="https://web.datepanchang.com"></a>
+      <img
+        id="textlogo"
+        src="/promos/images/textlogo.svg"
+        alt="Date Panchang"
+      />
+      <a id="lang" href="#"></a>
+    </section>
+    <section id="content">
+      <article class="paper" id="banner">
+        <a
+          class="formbtn"
+          id="patrikaa"
+          href="https://web.datepanchang.com/#/Seva/Patrikaa"
+        >
+          पत्रिका
+        </a>
+        <a
+          class="formbtn"
+          id="melan"
+          href="https://web.datepanchang.com/#/Seva/Melan"
+        >
+          कुंडली मेलन
+        </a>
+        <a class="formbtn" id="muhurta" href="https://web.datepanchang.com/">
+          मुहूर्त
+        </a>
+      </article>
+      <article class="paper">
+        <header id="seva-header">
+          <img
+            id="seva-image"
+            src="Ganesh Pooja Vidhi.jpg"
+            alt="Ganesh Pooja Vidhi"
+          />
+          <div id="seva-title">
+            <div id="leading">
+              <div class="title-text marathi">गणेश पूजा विधी</div>
+            </div>
+            <div
+              style="display: flex; flex-wrap: wrap; justify-content: center"
+            >
+              <div
+                class="fb-like"
+                data-href="https://www.facebook.com/DatePanchang"
+                data-width="60"
+                data-layout="button_count"
+                data-action="like"
+                data-size="large"
+                data-share="true"
+                style="display: flex; align-items: center"
+              ></div>
+              <a id="share" href="#"></a>
+            </div>
+          </div>
+        </header>
+        <div id="description">
+          <section id="short">
+            <article class="marathi">
+              <div>
+                <a
+                  class="formbtn"
+                  id="patrikaa"
+                  href="https://youtu.be/gRUXsWqpN-A"
+                >
+                  मुख्य पूजा
+                </a>
+                <a
+                  class="formbtn"
+                  id="melan"
+                  href="https://youtu.be/mqayjBucMNw"
+                >
+                  उत्तर पूजा
+                </a>
+              </div>
+              <p>
+                *श्रीगणेश चतुर्थी - पूजन साहित्य*
+                <br />
+                <br />
+                श्रीगणेशाच्या पूजनापूर्वी खाली दिलेले सर्व साहित्य हाताशी घेऊन
+                बसावे.
+                <br />
+                <br />
+
+                हळद - कुंकु, अष्टगंध - शेंदूर, उगाळलेले गंध - चंदन, अक्षता<br />
+                कापसाची वस्त्र (कापसाची माळ) शक्यतो २१ मण्यांची<br />
+                पत्री – विविध झाडांची पानं, दूर्वा ( काही जुडी आणि काही सुट्या
+                दूर्वा) - आघाडा - शमी - तुळस<br />
+                हार - फुलं (काही लाल रंगाची फुलं असावीत)<br />
+                विड्याची पाने - १०, सुपारी - ५ <br />
+                खारीक - बदाम - खोबरे - गुळाचा खडा, पंचखाद्य<br />
+                तूप - पंचामृत<br />
+                अत्तर<br />
+                जानवं<br />
+                नारळ - १, इतर फळं ४<br />
+                नैवेद्य (मुख्य नैवेद्य, मोदक, पेढे, इ.)<br />
+                नाणी - ५/६<br />
+                ताम्हन - २, पळी - २, तांब्या १, भांडं १<br />
+                आसन / पाट - २<br />
+                पाणी टाकण्यासाठी पातेलं<br />
+                निर्माल्य टाकण्यासाठी छोटं पातेलं<br />
+
+                <br />
+
+                महाराष्ट्रात घरोघरी गणेश चतुर्थीच्या दिवशी गणेशाची पूजा होते.
+                मात्र यावर्षी कोरोनाच्या संकटामुळे अनेकांना पूजा सांगण्यासाठी
+                गुरुजी उपलब्ध होऊ शकत नाहीत. विघ्नहर्त्या गणेशाचे प्रतिवर्षी
+                प्रमाणे पूजन या ही वर्षी करता यावे याकरिता आम्ही आमच्या
+                <a
+                  href="https://www.youtube.com/channel/UCMFEM4bpAiYDdbSrFKuq6RA"
+                  >YouTube Channel</a
+                >
+                वरून आणि Social Media Handles वरून तसेच आमच्या
+                <a href="dinank.datepanchang.in">Dinank</a> या WebApp वरून गणेश
+                पूजन विधी चा विडिओ शेअर करणार आहोत. ही गणेश पूजा ऐकून आपण घरातील
+                गणेशाचे मनोभावे पूजन करू शकाल.<br />
+                गणेशाचे पूजन हे त्यानंतर दक्षिणा दिल्यावर खऱ्या अर्थाने पूर्ण
+                होते त्यामुळे गणेश चतुर्थीच्या दिवशी पूजन झाल्यावर प्रतिवर्षी
+                प्रमाणे दक्षिणा काढून ठेवावी आणि जे गुरुजी आपल्या घरी दरवर्षी
+                पूजनाला येतात त्यांच्या घरी नेऊन द्यावी अथवा Online Transfer
+                करावी. तसेच आमच्या
+                <a href="dinank.datepanchang.in">Dinank</a> या WebApp वरून देखील
+                आपण Donation / दक्षिणा देऊ शकता. या दक्षिणेचा उपयोग अशाच
+                प्रकारचा Content उपलब्ध करून देण्यासाठी केला जाईल.
+              </p>
+            </article>
+          </section>
+          <div
+            id="map"
+            style="
+              height: 600px;
+              width: 100%;
+              overflow: hidden;
+              float: left;
+              border: thin solid #333;
+              margin-bottom: 1em;
+              border-radius: 24px;
+            "
+          ></div>
+        </div>
+        <script>
+          var map;
+          var src =
+            "https://web.datepanchang.com/promos/utsav/14%2011%202021%20Ravi%20Udaya.kml";
+
+          function initMap() {
+            map = new google.maps.Map(document.getElementById("map"), {
+              center: new google.maps.LatLng(23, 80),
+              mapTypeId: "roadmap",
+            });
+
+            var kmlLayer = new google.maps.KmlLayer(src, {
+              suppressInfoWindows: true,
+              preserveViewport: false,
+              map: map,
+            });
+            kmlLayer.addListener("click", function (event) {
+              var content = event.featureData.infoWindowHtml;
+              var testimonial = document.getElementById("capture");
+              testimonial.innerHTML = content;
+            });
+          }
+        </script>
+        <script
+          async
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWFF-6e17dxwPbZfEqaf-72lkFuSdi3lU&callback=initMap"
+        ></script>
+      </article>
+    </section>
+    <script>
+      $(document).ready(function () {
+        var oldURL = window.location.href;
+        var params = "";
+        if (oldURL.includes("?"))
+          params = "?" + oldURL.slice(oldURL.indexOf("?") + 1);
+
+        $("#patrikaa").attr("href", $("#patrikaa").attr("href") + params);
+        $("#melan").attr("href", $("#melan").attr("href") + params);
+        $("#muhurta").attr("href", $("#muhurta").attr("href") + params);
+
+        if ($("#lang").hasClass("showEnglish")) {
+          console.log("inside showeng");
+          if (
+            $("#collapsible .english").text().length == 0 ||
+            $("#collapsible .english").text() == "null"
+          ) {
+            console.log($("#collapsible .english").text());
+            $("#collapsible").css("display", "none");
+            $(".expander").css("display", "none");
+          } else {
+            $(".expander").css("display", "block");
+          }
+        } else {
+          console.log("inside showmar");
+          if (
+            $("#collapsible .marathi").text().length == 0 ||
+            $("#collapsible .marathi").text() == "null"
+          ) {
+            console.log($("#collapsible .marathi").text());
+            $("#collapsible").css("display", "none");
+            $(".expander").css("display", "none");
+          } else {
+            $(".expander").css("display", "block");
+          }
+        }
+
+        $("#lang").click(function () {
+          $(this).toggleClass("showEnglish");
+          $(".marathi").toggle("fast");
+          $(".english").toggle("fast");
+
+          if ($("#lang").hasClass("showEnglish")) {
+            console.log("inside showeng");
+            if (
+              $("#collapsible .english").text().length == 0 ||
+              $("#collapsible .english").text() == "null"
+            ) {
+              console.log($("#collapsible .english").text());
+              $("#collapsible").css("display", "none");
+              $(".expander").css("display", "none");
+            } else {
+              $(".expander").css("display", "block");
+            }
+          } else {
+            console.log("inside showmar");
+            if (
+              $("#collapsible .marathi").text().length == 0 ||
+              $("#collapsible .marathi").text() == "null"
+            ) {
+              console.log($("#collapsible .marathi").text());
+              $("#collapsible").css("display", "none");
+              $(".expander").css("display", "none");
+            } else {
+              $(".expander").css("display", "block");
+            }
+          }
+        });
+
+        $("#share").click(function () {
+          if (navigator.share) {
+            navigator
+              .share({
+                title:
+                  "{{#if englishTitle}}{{englishTitle}}{{else}}{{title}}{{/if}}",
+                url: window.location.href,
+              })
+              .then(() => {
+                console.log("Thanks for sharing!");
+              })
+              .catch(() => {
+                var inputc = document.body.appendChild(
+                  document.createElement("input")
+                );
+                inputc.value = window.location.href;
+                inputc.focus();
+                inputc.select();
+                document.execCommand("copy");
+                inputc.parentNode.removeChild(inputc);
+                alert("Cannot Open Share Window! \n URL copied to Clipboard!");
+              });
+          }
+        });
+        if ($("#collapsible .marathi").text().length > 0) {
+          if ($(".expander").hasClass("active")) {
+            $(".expander").text("See Less");
+          } else $(".expander").text("See More");
+
+          $(".expander").click(function () {
+            $("#collapsible").slideToggle();
+            if ($(this).hasClass("active")) $(this).text("See More");
+            else $(this).text("See Less");
+
+            $(this).toggleClass("active");
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
