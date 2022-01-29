@@ -25,11 +25,11 @@ long:
   नागेन्द्रहाराय त्रिलोचनाय भस्माङरागाय महेश्वराय।
   नित्याय शुद्धाय दिगम्बराय तस्मै नकाराय नमः शिवाय।।
 
-image: Pradoshha.jpg
-uploadDate: 2021/07/06
+image: ShaniPradosha.jpg
+uploadDate: 2022/01/29
 tags:
   - Pradosha
   - Shiv Upasana
-  - प्रदोश
+  - शनिप्रदोष
   - शिवोपासना
 ---
