@@ -1,7 +1,7 @@
 ---
 englishTitle: Shiva Jayanti
-title: छ. शिवाजी महा. जयंती (तारखेनुसार)
-subtitle: १९ फेब्रुवारी
+title: छ. शिवाजी महा. जयंती (तिथिनुसार)
+subtitle: फाल्गुन कृ. ३
 short: 
   दावा द्रुम दंड पर, चीता मृगझुंड पर,   
   भूषण वितुंड पर, जैसे मृगराज हैं ।
@@ -70,8 +70,8 @@ long:
 
   १६८० एप्रिल ३ – महाराजांचा मृत्यू
 
-image: Shiva Jayanti.jpg
-uploadDate: 2022/02/19
+image: Shiva Jayanti Tithi.jpg
+uploadDate: 2022/03/21
 tags:
   - Shivaji
   - Shiva Jayanti
