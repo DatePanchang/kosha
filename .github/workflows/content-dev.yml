@@ -44,4 +44,4 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
       - run: |
-          az storage blob upload-batch -d '$web' --account-name devsarvajanik -s "src/rendered/" --destination-path 'promos/utsav' --auth-mode login
+          az storage blob upload-batch -d '$web' --account-name devsarvajanik --overwrite true -s "src/rendered/" --destination-path 'promos/utsav' --auth-mode login
