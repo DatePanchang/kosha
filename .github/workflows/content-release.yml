@@ -42,6 +42,6 @@ jobs:
       - name: Azure Login
         uses: Azure/login@v1
         with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
+          creds: ${{ secrets.AZURE_CREDS_NEW }}
       - run: |
           az storage blob upload-batch -d '$web' --account-name sarvajanik --overwrite true -s "src/rendered/" --destination-path 'promos/utsav' --auth-mode login
