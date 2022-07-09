@@ -13,7 +13,7 @@ long:
   28-07-2022 गुरुपुष्यामृत 7:05 नं. सूर्योदयापर्यंत
   25-08-2022 गुरुपुष्यामृत सूर्योदयापासून 16:16 प.
 
-image: Guru Pushya.jpg
+image: GuruPushya.jpg
 uploadDate: 2022/06/30
 tags:
   - Guru Pushya
